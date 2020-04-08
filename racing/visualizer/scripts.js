@@ -120,7 +120,8 @@ function convertTick(data){
     return {
         time: data[0],
         isFinished: data[1],
-        car: convertCar(data[2]),
+        firstCar: convertCar(data[2]),
+        secondCar: convertCar(data[3])
     };
 }
 
@@ -154,19 +155,22 @@ function update() {
 }
 
 function drawEvent(tick){
-    const car = tick.car;
-    adjustScale(car);
+    const firstCar = tick.firstCar;
+    const secondCar = tick.secondCar;
+    adjustScale(firstCar);
+    adjustScale(secondCar);
     clearSpace();
-    drawFlags(log.flags, car);
+    drawFlags(log.flags, firstCar, secondCar);
     drawObstacles(log.obstacles);
     consoleOut = tick.time + "\n";
-    drawCar(car);
+    drawCar(firstCar);
+    drawCar(secondCar);
     con.innerText = consoleOut;
 }
 
-function drawFlags(flags, car){
+function drawFlags(flags, firstCar, secondCar){
     for(let i = 0; i < flags.length; i++){
-        let isNext = i == car.flagsTaken % flags.length;
+        let isNext = i == (firstCar.flagsTaken + secondCar.flagsTaken) % flags.length;
         drawFlag(flags[i], i, isNext);
     }
 }

@@ -45,7 +45,7 @@ namespace AiAlgorithms.racing
         {
             var logger = loggers[0];
             writer.Write(
-                $"[{tickState.Time}, {(tickState.IsFinished ? 1 : 0)}, {Car2Json(tickState.Car, logger.DebugOutput, logger.DebugLines)}]\n");
+                $"[{tickState.Time}, {(tickState.IsFinished ? 1 : 0)}, {Car2Json(tickState.FirstCar, logger.DebugOutput, logger.DebugLines)}, {Car2Json(tickState.SecondCar, logger.DebugOutput, logger.DebugLines)}]\n");
             writer.Write("]];");
         }
 
@@ -53,7 +53,7 @@ namespace AiAlgorithms.racing
         {
             var logger = loggers[0];
             writer.Write(
-                $"[{tickState.Time}, {(tickState.IsFinished ? 1 : 0)}, {Car2Json(tickState.Car, logger.DebugOutput, logger.DebugLines)}],\n");
+                $"[{tickState.Time}, {(tickState.IsFinished ? 1 : 0)}, {Car2Json(tickState.FirstCar, logger.DebugOutput, logger.DebugLines)}, {Car2Json(tickState.SecondCar, logger.DebugOutput, logger.DebugLines)}],\n");
             logger.DebugLines.Clear();
             logger.DebugOutput = "";
         }

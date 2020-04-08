@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using AiAlgorithms.Algorithms;
 
@@ -7,37 +8,43 @@ namespace AiAlgorithms.racing
     public class RaceState
     {
         public readonly RaceTrack Track;
-        public readonly Car Car;
+        public readonly Car FirstCar;
+        public readonly Car SecondCar;
+        public readonly IReadOnlyCollection<Car> Cars;
 
-        public RaceState(RaceTrack track, Car car)
+        public RaceState(RaceTrack track, Car firstCar, Car secondCar)
         {
             Track = track;
-            Car = car;
+            FirstCar = firstCar;
+            SecondCar = secondCar;
+            Cars = new List<Car> {FirstCar, SecondCar};
         }
 
         public int Time { get; private set; }
-        public bool IsFinished => Time >= Track.RaceDuration || Car.FlagsTaken >= Track.FlagsToTake;
+        public bool IsFinished => Time >= Track.RaceDuration || FirstCar.FlagsTaken >= Track.FlagsToTake;
 
         public RaceState MakeCopy()
         {
-            return new RaceState(Track, Car.MakeCopy()) {Time = Time};
+            return new RaceState(Track, FirstCar.MakeCopy(), SecondCar.MakeCopy()) {Time = Time};
         }
 
         public void Tick()
         {
             if (IsFinished) return;
-            if (Car.IsAlive)
+            foreach (var car in Cars)
             {
-                var initialPos = Car.Pos;
-                Car.Tick();
-                var finalPos = Car.Pos;
-                if (CrashToObstacle(initialPos, finalPos, Car.Radius))
-                    Car.IsAlive = false;
-                else
-                    while (SegmentCrossPoint(initialPos, finalPos, GetFlagFor(Car), Car.Radius))
-                        Car.FlagsTaken++;
+                if (car.IsAlive)
+                {
+                    var initialPos = car.Pos;
+                    car.Tick();
+                    var finalPos = car.Pos;
+                    if (CrashToObstacle(initialPos, finalPos, car.Radius))
+                        car.IsAlive = false;
+                    else
+                        while (SegmentCrossPoint(initialPos, finalPos, GetFlagFor(car), car.Radius))
+                            car.FlagsTaken++;
+                }
             }
-
             Time++;
         }
 
@@ -67,7 +74,7 @@ namespace AiAlgorithms.racing
 
         public override string ToString()
         {
-            return $"Car: {Car}, Time: {Time}, IsFinished: {IsFinished}";
+            return $"FirstCar: {FirstCar}, SecondCar: {SecondCar}, Time: {Time}, IsFinished: {IsFinished}";
         }
     }
 }

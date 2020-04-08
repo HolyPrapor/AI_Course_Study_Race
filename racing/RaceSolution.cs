@@ -4,9 +4,9 @@ namespace AiAlgorithms.racing
 {
     public class RaceSolution : ISolution
     {
-        public readonly V[] Accelerations;
+        public readonly (V firstCarAcceleration, V secondCarAcceleration)[] Accelerations;
 
-        public RaceSolution(V[] accelerations)
+        public RaceSolution((V firstCarAcceleration, V secondCarAcceleration)[] accelerations)
         {
             Accelerations = accelerations;
         }

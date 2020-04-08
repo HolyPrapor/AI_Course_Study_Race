@@ -4,13 +4,29 @@
     <list default="true" id="a78b053a-159f-458f-b0e4-eb9ca2fdbd77" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/nunit_random_seed.tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/last-log.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/last-log.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/aicourse.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/aicourse.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/aicourse.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/aicourse.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/IGameLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/IGameLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/NaiveRacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/NaiveRacer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/RaceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/RaceProblemsRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceProblemsRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/RaceSolution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceSolution.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/RaceState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/checking/GreedyRacer_Universal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/checking/HeuristicsRacer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/checking/IEstimator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/checking/RaceEstimator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/checking/RaceState_Should.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/checking/RandomRacer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/visualizer/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/racing/visualizer/scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,17 +37,34 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/racing/RaceState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Algorithms/V.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/RaceController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/Car.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/NaiveRacer_Tests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/racing/RaceTrack.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/racing/RaceState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/RaceSolution.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/Disk.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Algorithms/V.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/GreedyRacer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/RaceProblemsRepo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Algorithms/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/RaceTrack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/IGameLogger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/NaiveRacer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/racing/Car.cs" />
+        <option value="$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" />
+        <option value="$PROJECT_DIR$/racing/RaceProblemsRepo.cs" />
+        <option value="$PROJECT_DIR$/racing/RaceState.cs" />
+        <option value="$PROJECT_DIR$/racing/RaceSolution.cs" />
+        <option value="$PROJECT_DIR$/racing/RaceController.cs" />
+        <option value="$PROJECT_DIR$/racing/NaiveRacer.cs" />
+        <option value="$PROJECT_DIR$/racing/IGameLogger.cs" />
+        <option value="$PROJECT_DIR$/racing/visualizer/scripts.js" />
       </list>
     </option>
   </component>
@@ -80,7 +113,8 @@
       <workItem from="1584163657648" duration="397000" />
       <workItem from="1584446472252" duration="1818000" />
       <workItem from="1584789465549" duration="608000" />
-      <workItem from="1586317101981" duration="663000" />
+      <workItem from="1586317101981" duration="977000" />
+      <workItem from="1586318786587" duration="3843000" />
     </task>
     <servers />
   </component>
@@ -89,22 +123,126 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1584460467710">
+    <state width="446" height="455" key="DebuggerActiveHint" timestamp="1586321746967">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584460467710" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1584460467710">
+    <state width="446" height="455" key="DebuggerActiveHint/0.0.1280.680@0.0.1280.680" timestamp="1586321746967" />
+    <state width="1237" height="204" key="GridCell.Tab.0.bottom" timestamp="1586321990568">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584460467710" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1584460467710">
+    <state width="1237" height="204" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.0.center" timestamp="1586321990567">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584460467710" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1584460467710">
+    <state width="1237" height="204" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586321990567" />
+    <state width="1237" height="204" key="GridCell.Tab.0.left" timestamp="1586321990567">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584460467710" />
+    <state width="1237" height="204" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586321990567" />
+    <state width="1237" height="204" key="GridCell.Tab.0.right" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.2.bottom" timestamp="1586321990569">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586321990569" />
+    <state width="1237" height="204" key="GridCell.Tab.2.center" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.2.left" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.2.right" timestamp="1586321990568">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1586321990568" />
+    <state width="1237" height="204" key="GridCell.Tab.3.bottom" timestamp="1586321990570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.3.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state width="1237" height="204" key="GridCell.Tab.3.center" timestamp="1586321990570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.3.center/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state width="1237" height="204" key="GridCell.Tab.3.left" timestamp="1586321990569">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.3.left/0.0.1280.680@0.0.1280.680" timestamp="1586321990569" />
+    <state width="1237" height="204" key="GridCell.Tab.3.right" timestamp="1586321990570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.3.right/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state width="1237" height="204" key="GridCell.Tab.4.bottom" timestamp="1586321990570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.4.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state width="1237" height="204" key="GridCell.Tab.4.center" timestamp="1586321990570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.4.center/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state width="1237" height="204" key="GridCell.Tab.4.left" timestamp="1586321990570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.4.left/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state width="1237" height="204" key="GridCell.Tab.4.right" timestamp="1586321990570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.4.right/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1586319460229">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1586319460229" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/racing/RaceController.cs</url>
+          <line>46</line>
+          <properties documentPath="$PROJECT_DIR$/racing/RaceController.cs" initialLine="46">
+            <startOffsets>
+              <option value="1749" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1784" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

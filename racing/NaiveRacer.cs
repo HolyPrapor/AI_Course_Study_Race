@@ -8,8 +8,9 @@ namespace AiAlgorithms.racing
     {
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
-            var delta = problem.GetFlagFor(problem.Car) - problem.Car.Pos;
-            yield return new RaceSolution(new[] {new V(Math.Sign(delta.X), Math.Sign(delta.Y))});
+            var firstDelta = problem.GetFlagFor(problem.FirstCar) - problem.FirstCar.Pos;
+            var secondDelta = problem.GetFlagFor(problem.SecondCar) - problem.SecondCar.Pos;
+            yield return new RaceSolution(new[] {(new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y)), new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y)))});
         }
     }
 }

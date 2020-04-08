@@ -24,22 +24,22 @@ namespace AiAlgorithms.racing
             );
             using var streamWriter = new StreamWriter(filename);
             var result = new RaceController().Play(state, racer, new JsonGameLogger(streamWriter), timeoutPerTick);
-            Console.WriteLine(result.Time + "\t" + result.Car);
+            Console.WriteLine(result.Time + "\t" + result.FirstCar + "\t" + result.SecondCar);
             return result;
         }
 
-        public IEnumerable<RaceState> Play(RaceState initialState, RaceSolution solution)
-        {
-            var race = initialState.MakeCopy();
-            var i = 0;
-            while (!race.IsFinished && i < solution.Accelerations.Length)
-            {
-                var command = solution.Accelerations[i++];
-                race.Car.NextCommand = command;
-                race.Tick();
-                yield return race.MakeCopy();
-            }
-        }
+        // public IEnumerable<RaceState> Play(RaceState initialState, RaceSolution solution)
+        // {
+        //     var race = initialState.MakeCopy();
+        //     var i = 0;
+        //     while (!race.IsFinished && i < solution.Accelerations.Length)
+        //     {
+        //         var command = solution.Accelerations[i++];
+        //         race.FirstCar.NextCommand = command;
+        //         race.Tick();
+        //         yield return race.MakeCopy();
+        //     }
+        // }
 
         public RaceState Play(RaceState initialState, ISolver<RaceState, RaceSolution> solver,
             IGameLogger<RaceTrack, RaceState> logger, int aiTimeoutPerTickMs = timeoutPerTick)
@@ -51,8 +51,9 @@ namespace AiAlgorithms.racing
                 var variants = solver.GetSolutions(race, aiTimeoutPerTickMs).ToList();
                 var aiLogger = logger?.GetAiLogger(0);
                 LogAiVariants(race, aiLogger, variants);
-                var command = variants.Last().Accelerations[0];
-                race.Car.NextCommand = command;
+                var (firstCommand, secondCommand) = variants.Last().Accelerations[0];
+                race.FirstCar.NextCommand = firstCommand;
+                race.SecondCar.NextCommand = secondCommand;
                 logger?.LogTick(race);
                 race.Tick();
             }
@@ -72,11 +73,15 @@ namespace AiAlgorithms.racing
                 var state2 = state.MakeCopy();
                 foreach (var a in solution.Accelerations)
                 {
-                    var start = state2.Car.Pos;
-                    state2.Car.NextCommand = a;
+                    var startFirst = state2.FirstCar.Pos;
+                    var startSecond = state2.SecondCar.Pos;
+                    state2.FirstCar.NextCommand = a.firstCarAcceleration;
+                    state2.SecondCar.NextCommand = a.secondCarAcceleration;
                     state2.Tick();
-                    var end = state2.Car.Pos;
-                    aiLogger?.LogLine(start, end, intensity);
+                    var endFirst = state2.FirstCar.Pos;
+                    var endSecond = state2.SecondCar.Pos;
+                    aiLogger?.LogLine(startFirst, endFirst, intensity);
+                    aiLogger?.LogLine(startSecond, endSecond, intensity);
                 }
                 intensity *= 0.7;
             }

@@ -35,8 +35,8 @@ namespace AiAlgorithms.racing
             {
                 var racer = new GreedyRacer();
                 var finalState = RaceController.Play(test, racer, false);
-                var testScore = finalState.Car.FlagsTaken * 100 - finalState.Time;
-                Console.WriteLine($"Test #{iTest} score: {testScore} (flags: {finalState.Car.FlagsTaken} of {test.Track.FlagsToTake}, time: {finalState.Time} of {test.Track.RaceDuration})");
+                var testScore = finalState.FirstCar.FlagsTaken * 100 - finalState.Time;
+                Console.WriteLine($"Test #{iTest} score: {testScore} (flags: {finalState.FirstCar.FlagsTaken} of {test.Track.FlagsToTake}, time: {finalState.Time} of {test.Track.RaceDuration})");
                 score += testScore;
                 iTest++;
             }

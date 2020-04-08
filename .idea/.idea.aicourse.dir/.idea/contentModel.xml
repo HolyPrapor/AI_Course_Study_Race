@@ -30,14 +30,6 @@
       <e p="racing" t="Include">
         <e p=".firebaserc" t="Include" />
         <e p="Car.cs" t="Include" />
-        <e p="checking" t="Include">
-          <e p="GreedyRacer_Universal.cs" t="Include" />
-          <e p="HeuristicsRacer.cs" t="Include" />
-          <e p="IEstimator.cs" t="Include" />
-          <e p="RaceEstimator.cs" t="Include" />
-          <e p="RaceState_Should.cs" t="Include" />
-          <e p="RandomRacer.cs" t="Include" />
-        </e>
         <e p="Disk.cs" t="Include" />
         <e p="firebase.json" t="Include" />
         <e p="GreedyRacer.cs" t="Include" />
