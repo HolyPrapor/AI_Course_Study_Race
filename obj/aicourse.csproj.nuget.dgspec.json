@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\aicourse.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\aicourse.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\aicourse.csproj",
+        "projectName": "AiAlgorithms",
+        "projectPath": "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\aicourse.csproj",
+        "packagesPath": "C:\\Users\\Zeliboba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Zeliboba\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.*, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.*, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.*, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
