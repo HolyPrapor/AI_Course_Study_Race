@@ -2,31 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a78b053a-159f-458f-b0e4-eb9ca2fdbd77" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/racing/ExchangeCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/racing/ICarCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/racing/MoveCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/AiAlgorithms.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/nunit_random_seed.tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/last-log.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/last-log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/racing/visualizer/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/AiAlgorithms.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/aicourse.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/IGameLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/IGameLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/racing/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/Car.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/racing/NaiveRacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/NaiveRacer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/racing/RaceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/RaceProblemsRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceProblemsRepo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/racing/RaceSolution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceSolution.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/racing/RaceState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/checking/GreedyRacer_Universal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/checking/HeuristicsRacer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/checking/IEstimator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/checking/RaceEstimator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/checking/RaceState_Should.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/checking/RandomRacer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/visualizer/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/racing/visualizer/scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +23,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/racing/RaceState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/ExchangeCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Algorithms/V.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/RaceController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/Car.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,26 +31,33 @@
     <setting file="file://$PROJECT_DIR$/racing/RaceSolution.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/Disk.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/GreedyRacer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/MoveCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/racing/ICarCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/RaceProblemsRepo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Algorithms/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/RaceTrack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BBB3B884-123D-47EA-9CD1-5BED540D02AE/05/1040d5a5/ValueTuple`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/IGameLogger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/racing/NaiveRacer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/racing/Car.cs" />
         <option value="$PROJECT_DIR$/racing/GreedyRacer_Tests.cs" />
         <option value="$PROJECT_DIR$/racing/RaceProblemsRepo.cs" />
-        <option value="$PROJECT_DIR$/racing/RaceState.cs" />
-        <option value="$PROJECT_DIR$/racing/RaceSolution.cs" />
-        <option value="$PROJECT_DIR$/racing/RaceController.cs" />
-        <option value="$PROJECT_DIR$/racing/NaiveRacer.cs" />
         <option value="$PROJECT_DIR$/racing/IGameLogger.cs" />
         <option value="$PROJECT_DIR$/racing/visualizer/scripts.js" />
+        <option value="$PROJECT_DIR$/racing/ICarCommand.cs" />
+        <option value="$PROJECT_DIR$/racing/Move.cs" />
+        <option value="$PROJECT_DIR$/racing/Car.cs" />
+        <option value="$PROJECT_DIR$/racing/NaiveRacer.cs" />
+        <option value="$PROJECT_DIR$/racing/RaceSolution.cs" />
+        <option value="$PROJECT_DIR$/racing/RaceController.cs" />
+        <option value="$PROJECT_DIR$/racing/ExchangeCommand.cs" />
+        <option value="$PROJECT_DIR$/racing/RaceState.cs" />
+        <option value="$PROJECT_DIR$/racing/MoveCommand.cs" />
       </list>
     </option>
   </component>
@@ -114,7 +107,7 @@
       <workItem from="1584446472252" duration="1818000" />
       <workItem from="1584789465549" duration="608000" />
       <workItem from="1586317101981" duration="977000" />
-      <workItem from="1586318786587" duration="3843000" />
+      <workItem from="1586318786587" duration="6136000" />
     </task>
     <servers />
   </component>
@@ -221,6 +214,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="204" key="GridCell.Tab.4.right/0.0.1280.680@0.0.1280.680" timestamp="1586321990570" />
+    <state x="474" y="41" key="RiderGenerateDialog" timestamp="1586333577583">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="474" y="41" key="RiderGenerateDialog/0.0.1280.680@0.0.1280.680" timestamp="1586333577583" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1586319460229">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

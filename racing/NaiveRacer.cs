@@ -10,7 +10,11 @@ namespace AiAlgorithms.racing
         {
             var firstDelta = problem.GetFlagFor(problem.FirstCar) - problem.FirstCar.Pos;
             var secondDelta = problem.GetFlagFor(problem.SecondCar) - problem.SecondCar.Pos;
-            yield return new RaceSolution(new[] {(new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y)), new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y)))});
+            yield return new RaceSolution(new (
+                ICarCommand firstCarAcceleration,
+                ICarCommand secondCarAcceleration)[]
+                {(new MoveCommand(new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y))),
+                    new MoveCommand(new V(Math.Sign(secondDelta.X), Math.Sign(secondDelta.Y))))});
         }
     }
 }

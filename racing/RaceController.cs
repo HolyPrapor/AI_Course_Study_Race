@@ -51,7 +51,7 @@ namespace AiAlgorithms.racing
                 var variants = solver.GetSolutions(race, aiTimeoutPerTickMs).ToList();
                 var aiLogger = logger?.GetAiLogger(0);
                 LogAiVariants(race, aiLogger, variants);
-                var (firstCommand, secondCommand) = variants.Last().Accelerations[0];
+                var (firstCommand, secondCommand) = variants.Last().CarCommands[0];
                 race.FirstCar.NextCommand = firstCommand;
                 race.SecondCar.NextCommand = secondCommand;
                 logger?.LogTick(race);
@@ -64,24 +64,25 @@ namespace AiAlgorithms.racing
         private void LogAiVariants(RaceState state, IGameAiLogger aiLogger, List<RaceSolution> variants)
         {
             var variantsToLog = variants.Cast<RaceSolution>().Reverse().Take(5).ToList();
-            var log = variantsToLog.Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.Accelerations.StrJoin(",")}").StrJoin("\n");
+            var log = variantsToLog.Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}").StrJoin("\n");
             aiLogger?.LogText(log);
-
             var intensity = 1.0;
             foreach (var solution in variantsToLog)
             {
                 var state2 = state.MakeCopy();
-                foreach (var a in solution.Accelerations)
+                foreach (var a in solution.CarCommands)
                 {
                     var startFirst = state2.FirstCar.Pos;
                     var startSecond = state2.SecondCar.Pos;
-                    state2.FirstCar.NextCommand = a.firstCarAcceleration;
-                    state2.SecondCar.NextCommand = a.secondCarAcceleration;
+                    state2.FirstCar.NextCommand = a.firstCarCommand;
+                    state2.SecondCar.NextCommand = a.secondCarCommand;
                     state2.Tick();
                     var endFirst = state2.FirstCar.Pos;
                     var endSecond = state2.SecondCar.Pos;
-                    aiLogger?.LogLine(startFirst, endFirst, intensity);
-                    aiLogger?.LogLine(startSecond, endSecond, intensity);
+                    aiLogger?.LogLine(startFirst, a.firstCarCommand is ExchangeCommand ? startSecond : endFirst,
+                        intensity);
+                    aiLogger?.LogLine(startSecond, a.secondCarCommand is ExchangeCommand ? startFirst : endSecond,
+                        intensity);
                 }
                 intensity *= 0.7;
             }

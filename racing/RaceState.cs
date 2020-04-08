@@ -10,14 +10,15 @@ namespace AiAlgorithms.racing
         public readonly RaceTrack Track;
         public readonly Car FirstCar;
         public readonly Car SecondCar;
-        public readonly IReadOnlyCollection<Car> Cars;
+        private readonly IReadOnlyCollection<Car> cars;
+        public int ExchangeCooldown { get; private set; } = 0;
 
         public RaceState(RaceTrack track, Car firstCar, Car secondCar)
         {
             Track = track;
             FirstCar = firstCar;
             SecondCar = secondCar;
-            Cars = new List<Car> {FirstCar, SecondCar};
+            cars = new List<Car> {FirstCar, SecondCar};
         }
 
         public int Time { get; private set; }
@@ -31,7 +32,15 @@ namespace AiAlgorithms.racing
         public void Tick()
         {
             if (IsFinished) return;
-            foreach (var car in Cars)
+            if (FirstCar.NextCommand is ExchangeCommand && SecondCar.NextCommand is ExchangeCommand && 
+                ExchangeCooldown <= 0)
+            {
+                var temp = FirstCar.V;
+                FirstCar.V = SecondCar.V;
+                SecondCar.V = temp;
+                ExchangeCooldown = 20;
+            }
+            foreach (var car in cars)
             {
                 if (car.IsAlive)
                 {
@@ -46,6 +55,7 @@ namespace AiAlgorithms.racing
                 }
             }
             Time++;
+            ExchangeCooldown--;
         }
 
         private bool CrashToObstacle(V a, V b, int carRadius)

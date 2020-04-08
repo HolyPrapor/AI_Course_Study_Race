@@ -4,16 +4,16 @@ namespace AiAlgorithms.racing
 {
     public class RaceSolution : ISolution
     {
-        public readonly (V firstCarAcceleration, V secondCarAcceleration)[] Accelerations;
+        public readonly (ICarCommand firstCarCommand, ICarCommand secondCarCommand)[] CarCommands;
 
-        public RaceSolution((V firstCarAcceleration, V secondCarAcceleration)[] accelerations)
+        public RaceSolution((ICarCommand firstCarCommand, ICarCommand secondCarCommand)[] carCommands)
         {
-            Accelerations = accelerations;
+            CarCommands = carCommands;
         }
 
         public override string ToString()
         {
-            return $"Score: {Score}, Accelerations: {Accelerations.StrJoin(" ")}";
+            return $"Score: {Score}, Commands (TODO:): {CarCommands.StrJoin(" ")}";
         }
 
         public double Score { get; set; }

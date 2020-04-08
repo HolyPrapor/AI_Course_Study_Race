@@ -15,11 +15,12 @@ namespace AiAlgorithms.racing
         public V V { get; set; }
         public bool IsAlive { get; set; }
         public int FlagsTaken { get; set; }
-        public V NextCommand { get; set; }
+        public ICarCommand NextCommand { get; set; }
 
         public void Tick()
         {
-            V = V + new V(Math.Sign(NextCommand.X), Math.Sign(NextCommand.Y));
+            if (NextCommand is MoveCommand move)
+                V = V + new V(Math.Sign(move.Acceleration.X), Math.Sign(move.Acceleration.Y));
             Pos = Pos + V;
         }
 
