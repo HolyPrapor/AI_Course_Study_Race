@@ -4619,11 +4619,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\aicourse.csproj",
+      "projectUniqueName": "C:\\AI\\AI_Course_Study_Race\\aicourse.csproj",
       "projectName": "AiAlgorithms",
-      "projectPath": "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\aicourse.csproj",
+      "projectPath": "C:\\AI\\AI_Course_Study_Race\\aicourse.csproj",
       "packagesPath": "C:\\Users\\Zeliboba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zeliboba\\Downloads\\Exercises (1)\\obj\\",
+      "outputPath": "C:\\AI\\AI_Course_Study_Race\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

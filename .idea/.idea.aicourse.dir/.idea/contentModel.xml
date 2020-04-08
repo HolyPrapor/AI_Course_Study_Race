@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1" t="Include">
-      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
-    </e>
-    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
-    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
-    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
-    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
-    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
-    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="C:\Users\Zeliboba\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Zeliboba\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Zeliboba\Downloads\Exercises (1)" t="IncludeRecursive">
+    <e p="C:\AI\AI_Course_Study_Race" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
       <e p="aicourse.csproj" t="IncludeRecursive" />
       <e p="Algorithms" t="Include">
@@ -68,36 +57,18 @@
           <e p="styles.css" t="Include" />
         </e>
       </e>
-      <e p="trucks" t="Include">
-        <e p="Box.cs" t="Include" />
-        <e p="GreedyTrucksSolver.cs" t="Include" />
-        <e p="GreedyTrucksSolver_Tests.cs" t="Include" />
-        <e p="HillClimbing_Tests.cs" t="Include" />
-        <e p="Truck.cs" t="Include" />
-        <e p="TrucksHillClimbingSolver.cs" t="Include" />
-        <e p="TrucksProblem.cs" t="Include" />
-        <e p="TrucksProblemRepo.cs" t="Include" />
-        <e p="TrucksSolution.cs" t="Include" />
-        <e p="TrucksSolverEvaluator.cs" t="Include" />
-      </e>
-      <e p="tsp" t="Include">
-        <e p="FlipRandomSegmentMutator.cs" t="Include" />
-        <e p="FlipSegmentMutation.cs" t="Include" />
-        <e p="FlipSegmentMutation_Should.cs" t="Include" />
-        <e p="FlipSegmentMutator.cs" t="Include" />
-        <e p="GreedyTspSolver.cs" t="Include" />
-        <e p="HillClimbingTspSolver.cs" t="Include" />
-        <e p="Point.cs" t="Include" />
-        <e p="PointExtensions.cs" t="Include" />
-        <e p="RandomProblemFactory.cs" t="Include" />
-        <e p="RandomTspSolver.cs" t="Include" />
-        <e p="SingleRandomTspSolver.cs" t="Include" />
-        <e p="TransposeMutation.cs" t="Include" />
-        <e p="TransposeMutation_Should.cs" t="Include" />
-        <e p="TransposeMutator.cs" t="Include" />
-        <e p="TransposeNeighborsMutator.cs" t="Include" />
-        <e p="TspSolution.cs" t="Include" />
-      </e>
+      <e p="README.md" t="Include" />
     </e>
+    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\Zeliboba\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Zeliboba\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
   </component>
 </project>
