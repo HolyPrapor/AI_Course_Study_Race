@@ -26,7 +26,8 @@ namespace AiAlgorithms.racing
 
         public RaceState MakeCopy()
         {
-            return new RaceState(Track, FirstCar.MakeCopy(), SecondCar.MakeCopy()) {Time = Time};
+            return new RaceState(Track, FirstCar.MakeCopy(), SecondCar.MakeCopy()) {Time = Time,
+                ExchangeCooldown = ExchangeCooldown};
         }
 
         public void Tick()

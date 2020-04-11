@@ -29,6 +29,7 @@
       <e p="Program.cs" t="Include" />
       <e p="racing" t="Include">
         <e p=".firebaserc" t="Include" />
+        <e p="AbstractRacer.cs" t="Include" />
         <e p="Car.cs" t="Include" />
         <e p="Disk.cs" t="Include" />
         <e p="ExchangeCommand.cs" t="Include" />
@@ -36,7 +37,9 @@
         <e p="GreedyRacer.cs" t="Include" />
         <e p="GreedyRacer_Tests.cs" t="Include" />
         <e p="ICarCommand.cs" t="Include" />
+        <e p="IFlagChooser.cs" t="Include" />
         <e p="IGameLogger.cs" t="Include" />
+        <e p="IMoveChooser.cs" t="Include" />
         <e p="MoveCommand.cs" t="Include" />
         <e p="NaiveRacer.cs" t="Include" />
         <e p="NaiveRacer_Tests.cs" t="Include" />
