@@ -7,9 +7,9 @@ namespace AiAlgorithms.racing
     {
         public (V FirstCarNextFlag, V SecondCarNextFlag) GetNextFlagsFor(RaceState state)
         {
-            V flag1 = null;
-            V flag2 = null;
+            V flag = null;
             var maxDist = 0.0;
+            var flagIndex = 0;
 
             for(var i = 1; i < state.Track.Flags.Count; i++)
             {
@@ -20,23 +20,23 @@ namespace AiAlgorithms.racing
                 if (curDist > maxDist)
                 {
                     maxDist = curDist;
-                    flag1 = curF1;
-                    flag2 = curF2;
+                    flag = curF2;
+                    flagIndex = i + 1;
                 }
             }
 
             var nextFlag = state.GetNextFlag();
 
-            if (nextFlag == flag2)
-                flag2 = state.Track.Flags[0];
+            if (state.FlagsTaken % state.Track.Flags.Count >= flagIndex)
+                flag = state.Track.Flags[0];
 
             var dist1ToNextFlag = nextFlag.DistTo(state.FirstCar.Pos + state.FirstCar.V);
             var dist2ToNextFlag = nextFlag.DistTo(state.SecondCar.Pos + state.SecondCar.V);
 
             if (dist1ToNextFlag < dist2ToNextFlag)
-                return (nextFlag, flag2);
+                return (nextFlag, flag);
 
-            return (flag2, nextFlag);
+            return (flag, nextFlag);
         }
     }
 }
