@@ -57,7 +57,6 @@ namespace AiAlgorithms.racing
 
         private (double,V) ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag)
         {
-            //генерить не V, а команду?
             var dict = Directions.ToDictionary(pair => pair, pair => new List<double>());
             foreach (var pair in dict)
             {
@@ -76,7 +75,6 @@ namespace AiAlgorithms.racing
             return EvaluateCommand(state,ifFirstCar,thisFlag, new ExchangeCommand());
         }
 
-        //все evaluate одинаковы для всех racerov, нужно в 1 класс
         public static void EvaluateMove(RaceState state, 
             List<double> evList, V acceleration, bool ifFirstCar, V thisFlag)
         {
@@ -89,18 +87,7 @@ namespace AiAlgorithms.racing
         {
             var car = ifFirstCar ? state.FirstCar : state.SecondCar;
             car.NextCommand = command;
-            var ifFirstTime = true;
-            //костыль патамушо не меняла тик
-            state.Tick(car =>
-            {
-                if (ifFirstTime)
-                {
-                    ifFirstTime = false;
-                    return thisFlag;
-                }
-                else
-                    return null;
-            });
+            state.Tick();
             if (!car.IsAlive)
                 return double.MinValue;
             else

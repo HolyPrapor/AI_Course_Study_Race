@@ -30,7 +30,7 @@ namespace AiAlgorithms.racing
                 ExchangeCooldown = ExchangeCooldown};
         }
 
-        public void Tick(Func<Car, V> getFlag)
+        public void Tick()
         {
             if (IsFinished) return;
             if (FirstCar.NextCommand is ExchangeCommand && SecondCar.NextCommand is ExchangeCommand && 
@@ -51,17 +51,12 @@ namespace AiAlgorithms.racing
                     if (CrashToObstacle(initialPos, finalPos, car.Radius))
                         car.IsAlive = false;
                     else
-                        while (SegmentCrossPoint(initialPos, finalPos, getFlag(car), car.Radius))
+                        while (SegmentCrossPoint(initialPos, finalPos, GetFlagFor(), car.Radius))
                             car.FlagsTaken++;
                 }
             }
             Time++;
             ExchangeCooldown--;
-        }
-
-        public void Tick()
-        {
-            Tick((car)=>GetFlagFor(car));
         }
 
         private bool CrashToObstacle(V a, V b, int carRadius)
@@ -83,9 +78,9 @@ namespace AiAlgorithms.racing
             return Math.Abs(((b - a) ^ (p - a)) / a.DistTo(b));
         }
 
-        public V GetFlagFor(Car car)
+        public V GetFlagFor()
         {
-            return Track.Flags[car.FlagsTaken % Track.Flags.Count];
+            return Track.Flags[(FirstCar.FlagsTaken+SecondCar.FlagsTaken) % Track.Flags.Count];
         }
 
         public override string ToString()
