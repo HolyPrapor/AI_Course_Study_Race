@@ -12,7 +12,7 @@ namespace AiAlgorithms.racing
             var (firstCarFlag, secondCarFlag) = FlagChooser.GetNextFlagsFor(problem);
             var moves = MoveChooser.GetCarCommands(firstCarFlag, secondCarFlag,
                 problem);
-            yield return new RaceSolution(moves);
+            yield return new RaceSolution(moves, FlagChooser);
         }
     }
 }

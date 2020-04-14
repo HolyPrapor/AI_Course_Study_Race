@@ -12,6 +12,7 @@ namespace AiAlgorithms.racing
         public readonly Car SecondCar;
         private readonly IReadOnlyCollection<Car> cars;
         public int ExchangeCooldown { get; private set; } = 0;
+        public int TotalTakenFlags => FirstCar.FlagsTaken + SecondCar.FlagsTaken;
 
         public RaceState(RaceTrack track, Car firstCar, Car secondCar)
         {
@@ -30,7 +31,7 @@ namespace AiAlgorithms.racing
                 ExchangeCooldown = ExchangeCooldown};
         }
 
-        public void Tick()
+        public void Tick(IFlagChooser chooser)
         {
             if (IsFinished) return;
             if (FirstCar.NextCommand is ExchangeCommand && SecondCar.NextCommand is ExchangeCommand && 
@@ -51,12 +52,26 @@ namespace AiAlgorithms.racing
                     if (CrashToObstacle(initialPos, finalPos, car.Radius))
                         car.IsAlive = false;
                     else
-                        while (SegmentCrossPoint(initialPos, finalPos, GetFlagFor(car), car.Radius))
-                            car.FlagsTaken++;
+                    {
+                        while (true)
+                        {
+                            var nextFlag = GetFlagFor(car, chooser);
+                            if (nextFlag == GetNextFlag()
+                                && SegmentCrossPoint(initialPos, finalPos, nextFlag, car.Radius))
+                                car.FlagsTaken++;
+                            else
+                                break;
+                        }
+                    }
                 }
             }
             Time++;
             ExchangeCooldown--;
+        }
+
+        public V GetNextFlag(int shift = 0)
+        {
+            return Track.Flags[(TotalTakenFlags + shift) % Track.Flags.Count];
         }
 
         private bool CrashToObstacle(V a, V b, int carRadius)
@@ -78,9 +93,14 @@ namespace AiAlgorithms.racing
             return Math.Abs(((b - a) ^ (p - a)) / a.DistTo(b));
         }
 
-        public V GetFlagFor(Car car)
+        public V GetFlagFor(Car car, IFlagChooser chooser)
         {
-            return Track.Flags[car.FlagsTaken % Track.Flags.Count];
+            var (f1, f2) = chooser.GetNextFlagsFor(this);
+
+            if (car == FirstCar)
+                return f1;
+
+            return f2;
         }
 
         public override string ToString()
