@@ -4607,34 +4607,36 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Microsoft.NET.Test.Sdk >= 16.*",
+      "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NUnit >= 3.*",
       "NUnit3TestAdapter >= 3.*"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zeliboba\\.nuget\\packages\\": {},
+    "C:\\Users\\pervu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AI\\AI_Course_Study_Race\\aicourse.csproj",
+      "projectUniqueName": "C:\\Users\\pervu\\source\\repos\\AI_Course_Study_Race\\aicourse.csproj",
       "projectName": "AiAlgorithms",
-      "projectPath": "C:\\AI\\AI_Course_Study_Race\\aicourse.csproj",
-      "packagesPath": "C:\\Users\\Zeliboba\\.nuget\\packages\\",
-      "outputPath": "C:\\AI\\AI_Course_Study_Race\\obj\\",
+      "projectPath": "C:\\Users\\pervu\\source\\repos\\AI_Course_Study_Race\\aicourse.csproj",
+      "packagesPath": "C:\\Users\\pervu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pervu\\source\\repos\\AI_Course_Study_Race\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Zeliboba\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pervu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4653,7 +4655,7 @@
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
-            "version": "[16.*, )"
+            "version": "[16.5.0, )"
           },
           "NUnit": {
             "target": "Package",
@@ -4679,7 +4681,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
