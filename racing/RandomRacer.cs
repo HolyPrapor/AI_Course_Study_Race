@@ -24,10 +24,11 @@ namespace AiAlgorithms.racing
 
     public class RandomRacer : ISolver<RaceState, RaceSolution>
     {
-        private const int Depth = 40;
+        private int Depth;
         private static ICarCommand[] Commands;
         public PreviousBest firstPreviousBest =null;
         public PreviousBest secondPreviousBest = null;
+        private EvaluationFunctions EvaluationFunctions;
         static RandomRacer()
         {
             var list = new[] { 0, 1, -1 };
@@ -35,6 +36,12 @@ namespace AiAlgorithms.racing
                 .SelectMany(t => list, (t1, t2) => (ICarCommand)new MoveCommand(new V(t1, t2)))
                 .Prepend((ICarCommand)new ExchangeCommand())
                 .ToArray();
+        }
+
+        public RandomRacer(int depth = 20, double flagsTakenc = 10000, double distc = 1, double nextFlagc = 1 / 4)
+        {
+            Depth = depth;
+            EvaluationFunctions = new EvaluationFunctions(flagsTakenc, distc, nextFlagc);
         }
 
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
@@ -65,7 +72,7 @@ namespace AiAlgorithms.racing
                     myCommands.Add(command);
                     allCount += count;
                     for (int j = 0; j < count; j++)
-                        evList.Add(GreedyRacer.EvaluateCommand(state,ifFirstCar,thisFlag,command));
+                        evList.Add(EvaluationFunctions.EvaluateCommand(state,ifFirstCar,thisFlag,command));
                 }
                 resList.Add((myCommands, evList.Max(), state));
             }
@@ -75,7 +82,7 @@ namespace AiAlgorithms.racing
                 var bestPairInd = rnd.Next(10);
                 var addingCommand = Commands[bestPairInd];
                 prevBest.commandList.Add(addingCommand);
-                prevBest.score += GreedyRacer.EvaluateCommand(prevBest.state,
+                prevBest.score += EvaluationFunctions.EvaluateCommand(prevBest.state,
                     ifFirstCar, thisFlag,addingCommand);
                 resList.Add((prevBest.commandList, prevBest.score, prevBest.state));
             }
