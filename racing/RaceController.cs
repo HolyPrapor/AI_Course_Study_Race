@@ -51,7 +51,8 @@ namespace AiAlgorithms.racing
                 var variants = solver.GetSolutions(race, aiTimeoutPerTickMs).ToList();
                 var aiLogger = logger?.GetAiLogger(0);
                 LogAiVariants(race, aiLogger, variants);
-                var (firstCommand, secondCommand) = variants.Last().CarCommands[0];
+                var variant = variants.Last();
+                var (firstCommand, secondCommand) = variant.CarCommands[0];
                 race.FirstCar.NextCommand = firstCommand;
                 race.SecondCar.NextCommand = secondCommand;
                 logger?.LogTick(race);

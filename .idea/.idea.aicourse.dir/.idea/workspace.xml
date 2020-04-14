@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a78b053a-159f-458f-b0e4-eb9ca2fdbd77" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/racing/AbstractRacer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/racing/IFlagChooser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/racing/IMoveChooser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aicourse.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/nunit_random_seed.tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/GreedyRacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/GreedyRacer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/racing/RaceState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/racing/RaceState.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a78b053a-159f-458f-b0e4-eb9ca2fdbd77" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +113,7 @@
       <workItem from="1586349709804" duration="1714000" />
       <workItem from="1586520052417" duration="499000" />
       <workItem from="1586525058757" duration="1844000" />
-      <workItem from="1586574170646" duration="369000" />
+      <workItem from="1586574170646" duration="777000" />
     </task>
     <servers />
   </component>

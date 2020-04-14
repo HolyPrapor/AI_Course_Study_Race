@@ -19,7 +19,7 @@ namespace AiAlgorithms.racing
 
         [Test]
         [Explicit("Тест для отладки и анализа")]
-        public void VisualizeRace([Values(8)]int testIndex)
+        public void VisualizeRace([Values(2)]int testIndex)
         {
             // Открой файл bin/Debug/*/racing/visualizer/index.html чтобы посмотреть реплей на тесте testIndex
             var greedyRacer = new RandomRacer();
@@ -35,8 +35,8 @@ namespace AiAlgorithms.racing
             {
                 var racer = new RandomRacer();
                 var finalState = RaceController.Play(test, racer, false);
-                var testScore = finalState.FirstCar.FlagsTaken * 100 - finalState.Time;
-                Console.WriteLine($"Test #{iTest} score: {testScore} (flags: {finalState.FirstCar.FlagsTaken} of {test.Track.FlagsToTake}, time: {finalState.Time} of {test.Track.RaceDuration})");
+                var testScore = finalState.FlagsTaken * 100 - finalState.Time;
+                Console.WriteLine($"Test #{iTest} score: {testScore} (flags: {finalState.FlagsTaken} of {test.Track.FlagsToTake}, time: {finalState.Time} of {test.Track.RaceDuration})");
                 score += testScore;
                 iTest++;
             }

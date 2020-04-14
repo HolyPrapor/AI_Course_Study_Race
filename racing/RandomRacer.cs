@@ -46,15 +46,15 @@ namespace AiAlgorithms.racing
 
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
-            var ch = new SimpleChooser();
+            var ch = new SimpleConsistentFlagChooser();
             var pairOfFlags = ch.GetNextFlagsFor(problem);
-            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag);
-            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag);
+            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag, ch);
+            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag, ch);
             yield return new RaceSolution(new[]
             {(firstCarRes,secondCarRes)});
         }
 
-        private ICarCommand ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag)
+        private ICarCommand ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag, IFlagChooser chooser)
         {
             Random rnd = new Random();
             var resList = new List<(List<ICarCommand>, double, RaceState)>();

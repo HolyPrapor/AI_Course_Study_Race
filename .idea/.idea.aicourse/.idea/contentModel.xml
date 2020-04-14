@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\AI\AI_Course_Study_Race" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="aicourse.csproj" t="IncludeRecursive" />
+      <e p="aicourse.sln" t="IncludeFlat" />
+      <e p="Algorithms" t="Include">
+        <e p="AbstractImprover.cs" t="Include" />
+        <e p="Countdown.cs" t="Include" />
+        <e p="Extensions.cs" t="Include" />
+        <e p="HillClimbing.cs" t="Include" />
+        <e p="IHaveTime.cs" t="Include" />
+        <e p="IMutation.cs" t="Include" />
+        <e p="IMutator.cs" t="Include" />
+        <e p="ISolver.cs" t="Include" />
+        <e p="RandomSolver.cs" t="Include" />
+        <e p="StatValue.cs" t="Include" />
+        <e p="V.cs" t="Include" />
+      </e>
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="aicourse.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+      <e p="racing" t="Include">
+        <e p=".firebaserc" t="Include" />
+        <e p="AbstractRacer.cs" t="Include" />
+        <e p="Car.cs" t="Include" />
+        <e p="Disk.cs" t="Include" />
+        <e p="ExchangeCommand.cs" t="Include" />
+        <e p="firebase.json" t="Include" />
+        <e p="GreedyRacer.cs" t="Include" />
+        <e p="GreedyRacer_Tests.cs" t="Include" />
+        <e p="ICarCommand.cs" t="Include" />
+        <e p="IFlagChooser.cs" t="Include" />
+        <e p="IGameLogger.cs" t="Include" />
+        <e p="IMoveChooser.cs" t="Include" />
+        <e p="MaxDistFlagChooser.cs" t="Include" />
+        <e p="MoveCommand.cs" t="Include" />
+        <e p="NaiveRacer.cs" t="Include" />
+        <e p="NaiveRacer_Tests.cs" t="Include" />
+        <e p="RaceController.cs" t="Include" />
+        <e p="RaceProblemsRepo.cs" t="Include" />
+        <e p="RaceSolution.cs" t="Include" />
+        <e p="RaceState.cs" t="Include" />
+        <e p="RaceTrack.cs" t="Include" />
+        <e p="RandomRacer.cs" t="Include" />
+        <e p="RandomRacer_Tests.cs" t="Include" />
+        <e p="SimpleConsistentFlagChooser.cs" t="Include" />
+        <e p="visualizer" t="Include">
+          <e p="index.html" t="Include" />
+          <e p="last-log.js" t="Include" />
+          <e p="scripts.js" t="Include" />
+          <e p="styles.css" t="Include" />
+        </e>
+      </e>
+      <e p="README.md" t="Include" />
+    </e>
+    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\Zeliboba\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Zeliboba\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_aicourse.1185453680.00" t="ExcludeRecursive" />
+  </component>
+</project>

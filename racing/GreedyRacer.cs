@@ -12,9 +12,8 @@ namespace AiAlgorithms.racing
             var flags = state.Track.Flags;
             var firstCar = state.FirstCar;
             var secondCar = state.SecondCar;
-            var bothTakenCount = firstCar.FlagsTaken + secondCar.FlagsTaken;
-            var f = flags[(bothTakenCount) % flags.Count];
-            var s = flags[(bothTakenCount + 1) % flags.Count];
+            var f = flags[state.FlagsTaken % flags.Count];
+            var s = flags[(state.FlagsTaken + 1) % flags.Count];
             return (f, s);
         }
     }
@@ -55,7 +54,7 @@ namespace AiAlgorithms.racing
                 return double.MinValue;
             else
             {
-                var nextFlag = state.GetFlagFor();
+                var nextFlag = state.GetNextFlag();
                 var bonusToNextFlag = (car.Pos + car.V).DistTo(nextFlag) - car.Pos.DistTo(nextFlag);
                 var evaluation =
                     flagsTakenCoeff * car.FlagsTaken
@@ -88,11 +87,11 @@ namespace AiAlgorithms.racing
 
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
-            var ch = new SimpleChooser();
+            var ch = new SimpleConsistentFlagChooser();
             var pairOfFlags = ch.GetNextFlagsFor(problem);
             //можно выбирать в choosemove, но тада может сходить только 1
-            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag);
-            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag);
+            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag, ch);
+            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag, ch);
             var exchFisrt = double.NegativeInfinity;
             var exchSecond = double.NegativeInfinity;
             if (problem.ExchangeCooldown <= 0)//ващпе енто уже проверяется в тике
@@ -111,7 +110,7 @@ namespace AiAlgorithms.racing
                 (ICarCommand)new MoveCommand(secondCarRes.Item2))});
         }
 
-        private (double,V) ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag)
+        private (double,V) ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag, IFlagChooser chooser)
         {
             var dict = Directions.ToDictionary(pair => pair, pair => new List<double>());
             foreach (var pair in dict)
@@ -125,6 +124,32 @@ namespace AiAlgorithms.racing
             }
             var res_V = dict.OrderByDescending(pair => pair.Value.Max()).First();
             return (res_V.Value.Max(), res_V.Key);
+        }
+        public static double EvaluateExchange(RaceState state,
+            bool ifFirstCar, V thisFlag, IFlagChooser chooser)
+        {
+            return EvaluateCommand(state,ifFirstCar,thisFlag, new ExchangeCommand());
+        }
+
+        public static void EvaluateMove(RaceState state, 
+            List<double> evList, V acceleration, bool ifFirstCar, V thisFlag, IFlagChooser chooser)
+        {
+            evList.Add(EvaluateCommand(state, ifFirstCar, thisFlag,
+                (ICarCommand)new MoveCommand(acceleration)));
+        }
+
+        public static double EvaluateCommand(RaceState state,
+            bool ifFirstCar, V thisFlag, ICarCommand command)
+        {
+            var car = ifFirstCar ? state.FirstCar : state.SecondCar;
+            car.NextCommand = command;
+            state.Tick();
+            if (!car.IsAlive)
+                return double.MinValue;
+            var evaluation =
+                10000 * state.FlagsTaken
+                - thisFlag.DistTo(car.Pos);
+            return evaluation;
         }
     }
 }
