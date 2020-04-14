@@ -28,7 +28,7 @@ namespace AiAlgorithms.racing
             var nextFlag = state.GetNextFlag();
 
             if (nextFlag == flag2)
-                flag2 = flag1;
+                flag2 = state.Track.Flags[0];
 
             var dist1ToNextFlag = nextFlag.DistTo(state.FirstCar.Pos + state.FirstCar.V);
             var dist2ToNextFlag = nextFlag.DistTo(state.SecondCar.Pos + state.SecondCar.V);
