@@ -51,11 +51,12 @@ namespace AiAlgorithms.racing
                 var variants = solver.GetSolutions(race, aiTimeoutPerTickMs).ToList();
                 var aiLogger = logger?.GetAiLogger(0);
                 LogAiVariants(race, aiLogger, variants);
-                var (firstCommand, secondCommand) = variants.Last().CarCommands[0];
+                var variant = variants.Last();
+                var (firstCommand, secondCommand) = variant.CarCommands[0];
                 race.FirstCar.NextCommand = firstCommand;
                 race.SecondCar.NextCommand = secondCommand;
                 logger?.LogTick(race);
-                race.Tick();
+                race.Tick(variant.FlagChooser);
             }
             logger?.LogEnd(race);
             return race;
@@ -76,7 +77,7 @@ namespace AiAlgorithms.racing
                     var startSecond = state2.SecondCar.Pos;
                     state2.FirstCar.NextCommand = a.firstCarCommand;
                     state2.SecondCar.NextCommand = a.secondCarCommand;
-                    state2.Tick();
+                    state2.Tick(solution.FlagChooser);
                     var endFirst = state2.FirstCar.Pos;
                     var endSecond = state2.SecondCar.Pos;
                     aiLogger?.LogLine(startFirst, a.firstCarCommand is ExchangeCommand ? startSecond : endFirst,
