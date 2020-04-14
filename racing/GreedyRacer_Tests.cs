@@ -18,10 +18,10 @@ namespace AiAlgorithms.racing
         }
 
         [Test]
-        [Explicit("Тест для отладки и анализа")]
-        public void VisualizeRace([Values(8)]int testIndex)
+        [Explicit("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
+        public void VisualizeRace([Values(2)]int testIndex)
         {
-            // Открой файл bin/Debug/*/racing/visualizer/index.html чтобы посмотреть реплей на тесте testIndex
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ bin/Debug/*/racing/visualizer/index.html пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ testIndex
             var greedyRacer = new GreedyRacer();
             var test = RaceProblemsRepo.GetTests().ElementAt(testIndex);
             RaceController.Play(test, greedyRacer, true);
@@ -35,8 +35,8 @@ namespace AiAlgorithms.racing
             {
                 var racer = new GreedyRacer();
                 var finalState = RaceController.Play(test, racer, false);
-                var testScore = finalState.FirstCar.FlagsTaken * 100 - finalState.Time;
-                Console.WriteLine($"Test #{iTest} score: {testScore} (flags: {finalState.FirstCar.FlagsTaken} of {test.Track.FlagsToTake}, time: {finalState.Time} of {test.Track.RaceDuration})");
+                var testScore = finalState.FlagsTaken * 100 - finalState.Time;
+                Console.WriteLine($"Test #{iTest} score: {testScore} (flags: {finalState.FlagsTaken} of {test.Track.FlagsToTake}, time: {finalState.Time} of {test.Track.RaceDuration})");
                 score += testScore;
                 iTest++;
             }

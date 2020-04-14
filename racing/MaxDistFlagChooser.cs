@@ -37,7 +37,6 @@ namespace AiAlgorithms.racing
                 return (nextFlag, flag2);
 
             return (flag2, nextFlag);
-
         }
     }
 }

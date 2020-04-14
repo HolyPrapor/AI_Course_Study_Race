@@ -63,7 +63,7 @@ namespace AiAlgorithms.racing
             var carJson = string.Join(
                 ",", 
                 car.Pos, car.V, car.Radius, 
-                car.FlagsTaken, 
+                car.FlagsTaken,
                 car.IsAlive ? 1 : 0, 
                 car.NextCommand, 
                 $"\"{EscapeJsonString(output)}\"",

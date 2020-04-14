@@ -16,7 +16,7 @@ namespace AiAlgorithms.racing
                 ICarCommand firstCarAcceleration,
                 ICarCommand secondCarAcceleration)[]
                 {(new MoveCommand(new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y))),
-                    new MoveCommand(new V(Math.Sign(secondDelta.X), Math.Sign(secondDelta.Y))))}, fChooser);
+                    new MoveCommand(new V(Math.Sign(secondDelta.X), Math.Sign(secondDelta.Y))))});
         }
     }
 }

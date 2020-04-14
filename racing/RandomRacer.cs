@@ -39,12 +39,12 @@ namespace AiAlgorithms.racing
 
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
-            var ch = new SimpleChooser();
+            var ch = new SimpleConsistentFlagChooser();
             var pairOfFlags = ch.GetNextFlagsFor(problem);
             var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag, ch);
             var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag, ch);
             yield return new RaceSolution(new[]
-            {(firstCarRes,secondCarRes)}, ch);
+            {(firstCarRes,secondCarRes)});
         }
 
         private ICarCommand ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag, IFlagChooser chooser)
@@ -65,7 +65,7 @@ namespace AiAlgorithms.racing
                     myCommands.Add(command);
                     allCount += count;
                     for (int j = 0; j < count; j++)
-                        evList.Add(GreedyRacer.EvaluateCommand(state,ifFirstCar,thisFlag,command, chooser));
+                        evList.Add(GreedyRacer.EvaluateCommand(state,ifFirstCar,thisFlag,command));
                 }
                 resList.Add((myCommands, evList.Max(), state));
             }
@@ -76,7 +76,7 @@ namespace AiAlgorithms.racing
                 var addingCommand = Commands[bestPairInd];
                 prevBest.commandList.Add(addingCommand);
                 prevBest.score += GreedyRacer.EvaluateCommand(prevBest.state,
-                    ifFirstCar, thisFlag,addingCommand, chooser);
+                    ifFirstCar, thisFlag,addingCommand);
                 resList.Add((prevBest.commandList, prevBest.score, prevBest.state));
             }
             var res_V = resList.OrderByDescending(pair => pair.Item2).First();

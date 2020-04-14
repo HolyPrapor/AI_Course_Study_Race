@@ -5,12 +5,10 @@ namespace AiAlgorithms.racing
     public class RaceSolution : ISolution
     {
         public readonly (ICarCommand firstCarCommand, ICarCommand secondCarCommand)[] CarCommands;
-        public readonly IFlagChooser FlagChooser;
 
-        public RaceSolution((ICarCommand firstCarCommand, ICarCommand secondCarCommand)[] carCommands, IFlagChooser flagChooser)
+        public RaceSolution((ICarCommand firstCarCommand, ICarCommand secondCarCommand)[] carCommands)
         {
             CarCommands = carCommands;
-            FlagChooser = flagChooser;
         }
 
         public override string ToString()

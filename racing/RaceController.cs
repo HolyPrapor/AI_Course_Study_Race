@@ -56,7 +56,7 @@ namespace AiAlgorithms.racing
                 race.FirstCar.NextCommand = firstCommand;
                 race.SecondCar.NextCommand = secondCommand;
                 logger?.LogTick(race);
-                race.Tick(variant.FlagChooser);
+                race.Tick();
             }
             logger?.LogEnd(race);
             return race;
@@ -77,7 +77,7 @@ namespace AiAlgorithms.racing
                     var startSecond = state2.SecondCar.Pos;
                     state2.FirstCar.NextCommand = a.firstCarCommand;
                     state2.SecondCar.NextCommand = a.secondCarCommand;
-                    state2.Tick(solution.FlagChooser);
+                    state2.Tick();
                     var endFirst = state2.FirstCar.Pos;
                     var endSecond = state2.SecondCar.Pos;
                     aiLogger?.LogLine(startFirst, a.firstCarCommand is ExchangeCommand ? startSecond : endFirst,

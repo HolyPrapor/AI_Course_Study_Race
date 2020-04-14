@@ -11,8 +11,8 @@ namespace AiAlgorithms.racing
         public readonly Car FirstCar;
         public readonly Car SecondCar;
         private readonly IReadOnlyCollection<Car> cars;
-        public int ExchangeCooldown { get; private set; } = 0;
-        public int TotalTakenFlags => FirstCar.FlagsTaken + SecondCar.FlagsTaken;
+        public int FlagsTaken { get; private set; }
+        public int ExchangeCooldown { get; private set; }
 
         public RaceState(RaceTrack track, Car firstCar, Car secondCar)
         {
@@ -23,15 +23,15 @@ namespace AiAlgorithms.racing
         }
 
         public int Time { get; private set; }
-        public bool IsFinished => Time >= Track.RaceDuration || FirstCar.FlagsTaken >= Track.FlagsToTake;
+        public bool IsFinished => Time >= Track.RaceDuration || FlagsTaken >= Track.FlagsToTake;
 
         public RaceState MakeCopy()
         {
             return new RaceState(Track, FirstCar.MakeCopy(), SecondCar.MakeCopy()) {Time = Time,
-                ExchangeCooldown = ExchangeCooldown};
+                ExchangeCooldown = ExchangeCooldown, FlagsTaken = FlagsTaken};
         }
 
-        public void Tick(IFlagChooser chooser)
+        public void Tick()
         {
             if (IsFinished) return;
             if (FirstCar.NextCommand is ExchangeCommand && SecondCar.NextCommand is ExchangeCommand && 
@@ -52,26 +52,15 @@ namespace AiAlgorithms.racing
                     if (CrashToObstacle(initialPos, finalPos, car.Radius))
                         car.IsAlive = false;
                     else
-                    {
-                        while (true)
+                        while (SegmentCrossPoint(initialPos, finalPos, GetNextFlag(), car.Radius))
                         {
-                            var nextFlag = GetFlagFor(car, chooser);
-                            if (nextFlag == GetNextFlag()
-                                && SegmentCrossPoint(initialPos, finalPos, nextFlag, car.Radius))
-                                car.FlagsTaken++;
-                            else
-                                break;
+                            FlagsTaken++;
+                            car.FlagsTaken++;
                         }
-                    }
                 }
             }
             Time++;
             ExchangeCooldown--;
-        }
-
-        public V GetNextFlag(int shift = 0)
-        {
-            return Track.Flags[(TotalTakenFlags + shift) % Track.Flags.Count];
         }
 
         private bool CrashToObstacle(V a, V b, int carRadius)
@@ -81,7 +70,7 @@ namespace AiAlgorithms.racing
 
         private bool SegmentCrossPoint(V a, V b, V point, int crossDistance)
         {
-            return point!=null && DistPointToSegment(point, a, b) <= crossDistance;
+            return DistPointToSegment(point, a, b) <= crossDistance;
         }
 
         private double DistPointToSegment(V p, V a, V b)
@@ -93,14 +82,9 @@ namespace AiAlgorithms.racing
             return Math.Abs(((b - a) ^ (p - a)) / a.DistTo(b));
         }
 
-        public V GetFlagFor(Car car, IFlagChooser chooser)
+        public V GetNextFlag(int offset = 0)
         {
-            var (f1, f2) = chooser.GetNextFlagsFor(this);
-
-            if (car == FirstCar)
-                return f1;
-
-            return f2;
+            return Track.Flags[(FlagsTaken + offset) % Track.Flags.Count];
         }
 
         public override string ToString()
