@@ -81,7 +81,7 @@ namespace AiAlgorithms.racing
 
         private bool SegmentCrossPoint(V a, V b, V point, int crossDistance)
         {
-            return DistPointToSegment(point, a, b) <= crossDistance;
+            return point!=null && DistPointToSegment(point, a, b) <= crossDistance;
         }
 
         private double DistPointToSegment(V p, V a, V b)
