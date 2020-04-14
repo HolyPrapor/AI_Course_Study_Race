@@ -30,7 +30,7 @@ namespace AiAlgorithms.racing
                 ExchangeCooldown = ExchangeCooldown};
         }
 
-        public void Tick()
+        public void Tick(Func<Car, V> getFlag)
         {
             if (IsFinished) return;
             if (FirstCar.NextCommand is ExchangeCommand && SecondCar.NextCommand is ExchangeCommand && 
@@ -51,12 +51,17 @@ namespace AiAlgorithms.racing
                     if (CrashToObstacle(initialPos, finalPos, car.Radius))
                         car.IsAlive = false;
                     else
-                        while (SegmentCrossPoint(initialPos, finalPos, GetFlagFor(car), car.Radius))
+                        while (SegmentCrossPoint(initialPos, finalPos, getFlag(car), car.Radius))
                             car.FlagsTaken++;
                 }
             }
             Time++;
             ExchangeCooldown--;
+        }
+
+        public void Tick()
+        {
+            Tick((car)=>GetFlagFor(car));
         }
 
         private bool CrashToObstacle(V a, V b, int carRadius)
@@ -66,7 +71,7 @@ namespace AiAlgorithms.racing
 
         private bool SegmentCrossPoint(V a, V b, V point, int crossDistance)
         {
-            return DistPointToSegment(point, a, b) <= crossDistance;
+            return point!=null && DistPointToSegment(point, a, b) <= crossDistance;
         }
 
         private double DistPointToSegment(V p, V a, V b)
