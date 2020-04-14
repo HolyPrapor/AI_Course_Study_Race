@@ -41,13 +41,13 @@ namespace AiAlgorithms.racing
         {
             var ch = new SimpleChooser();
             var pairOfFlags = ch.GetNextFlagsFor(problem);
-            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag);
-            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag);
+            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag, ch);
+            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag, ch);
             yield return new RaceSolution(new[]
-            {(firstCarRes,secondCarRes)});
+            {(firstCarRes,secondCarRes)}, ch);
         }
 
-        private ICarCommand ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag)
+        private ICarCommand ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag, IFlagChooser chooser)
         {
             Random rnd = new Random();
             var resList = new List<(List<ICarCommand>, double, RaceState)>();
@@ -65,7 +65,7 @@ namespace AiAlgorithms.racing
                     myCommands.Add(command);
                     allCount += count;
                     for (int j = 0; j < count; j++)
-                        evList.Add(GreedyRacer.EvaluateCommand(state,ifFirstCar,thisFlag,command));
+                        evList.Add(GreedyRacer.EvaluateCommand(state,ifFirstCar,thisFlag,command, chooser));
                 }
                 resList.Add((myCommands, evList.Max(), state));
             }
@@ -76,7 +76,7 @@ namespace AiAlgorithms.racing
                 var addingCommand = Commands[bestPairInd];
                 prevBest.commandList.Add(addingCommand);
                 prevBest.score += GreedyRacer.EvaluateCommand(prevBest.state,
-                    ifFirstCar, thisFlag,addingCommand);
+                    ifFirstCar, thisFlag,addingCommand, chooser);
                 resList.Add((prevBest.commandList, prevBest.score, prevBest.state));
             }
             var res_V = resList.OrderByDescending(pair => pair.Item2).First();

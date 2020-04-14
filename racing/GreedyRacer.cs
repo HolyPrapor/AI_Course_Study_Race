@@ -34,60 +34,60 @@ namespace AiAlgorithms.racing
 
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
-            var ch = new SimpleChooser();
+            var ch = new MaxDistFlagChooser();
             var pairOfFlags = ch.GetNextFlagsFor(problem);
             //можно выбирать в choosemove, но тада может сходить только 1
-            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag);
-            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag);
+            var firstCarRes = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag, ch);
+            var secondCarRes = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag, ch);
             var exchFisrt = double.NegativeInfinity;
             var exchSecond = double.NegativeInfinity;
             if (problem.ExchangeCooldown <= 0)//ващпе енто уже проверяется в тике
             {
-                exchFisrt = EvaluateExchange(problem,true,pairOfFlags.FirstCarNextFlag);
-                exchSecond = EvaluateExchange(problem, false, pairOfFlags.SecondCarNextFlag);
+                exchFisrt = EvaluateExchange(problem,true,pairOfFlags.FirstCarNextFlag, ch);
+                exchSecond = EvaluateExchange(problem, false, pairOfFlags.SecondCarNextFlag, ch);
             }
             if (exchFisrt + exchSecond > firstCarRes.Item1 + secondCarRes.Item1)
                 yield return new RaceSolution(new[] {((ICarCommand)new ExchangeCommand(),
-                    (ICarCommand)new ExchangeCommand())});
+                    (ICarCommand)new ExchangeCommand())}, ch);
             else
             yield return new RaceSolution(new[] 
             {((ICarCommand)new MoveCommand(firstCarRes.Item2),
-                (ICarCommand)new MoveCommand(secondCarRes.Item2))});
+                (ICarCommand)new MoveCommand(secondCarRes.Item2))}, ch);
         }
 
-        private (double,V) ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag)
+        private (double,V) ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag, IFlagChooser chooser)
         {
             var dict = Directions.ToDictionary(pair => pair, pair => new List<double>());
             foreach (var pair in dict)
             {
                 RaceState state = problem.MakeCopy();
-                EvaluateMove(state, pair.Value, pair.Key, ifFirstCar, thisFlag);
+                EvaluateMove(state, pair.Value, pair.Key, ifFirstCar, thisFlag, chooser);
                 for (int i = 0; i < Depth; i++)
-                    EvaluateMove(state, pair.Value, V.Zero, ifFirstCar, thisFlag);
+                    EvaluateMove(state, pair.Value, V.Zero, ifFirstCar, thisFlag, chooser);
             }
             var res_V = dict.OrderByDescending(pair => pair.Value.Max()).First();
             return (res_V.Value.Max(), res_V.Key);
         }
 
         public static double EvaluateExchange(RaceState state,
-            bool ifFirstCar, V thisFlag)
+            bool ifFirstCar, V thisFlag, IFlagChooser chooser)
         {
-            return EvaluateCommand(state,ifFirstCar,thisFlag, new ExchangeCommand());
+            return EvaluateCommand(state,ifFirstCar,thisFlag, new ExchangeCommand(), chooser);
         }
 
         public static void EvaluateMove(RaceState state, 
-            List<double> evList, V acceleration, bool ifFirstCar, V thisFlag)
+            List<double> evList, V acceleration, bool ifFirstCar, V thisFlag, IFlagChooser chooser)
         {
             evList.Add(EvaluateCommand(state, ifFirstCar, thisFlag,
-                (ICarCommand)new MoveCommand(acceleration)));
+                (ICarCommand)new MoveCommand(acceleration), chooser));
         }
 
         public static double EvaluateCommand(RaceState state,
-            bool ifFirstCar, V thisFlag, ICarCommand command)
+            bool ifFirstCar, V thisFlag, ICarCommand command, IFlagChooser chooser)
         {
             var car = ifFirstCar ? state.FirstCar : state.SecondCar;
             car.NextCommand = command;
-            state.Tick();
+            state.Tick(chooser);
             if (!car.IsAlive)
                 return double.MinValue;
             else
