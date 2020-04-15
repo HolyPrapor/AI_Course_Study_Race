@@ -8,8 +8,8 @@ namespace AiAlgorithms.racing
     internal class RandomRacerWithoutMemorizing : ISolver<RaceState, RaceSolution>
     {
         private static readonly ICarCommand[] Commands;
-        private readonly int Depth;
-        private readonly EvaluationFunctions EvaluationFunctions;
+        private readonly int depth;
+        private readonly EvaluationFunctions evaluationFunctions;
 
         static RandomRacerWithoutMemorizing()
         {
@@ -20,11 +20,11 @@ namespace AiAlgorithms.racing
                 .ToArray();
         }
 
-        public RandomRacerWithoutMemorizing(int depth = 20, double flagsTakenc = 10000, double distc = 1,
-            double nextFlagc = 1 / 4)
+        public RandomRacerWithoutMemorizing(int depth = 20, double flagsTakenC = 10000, double distC = 1,
+            double nextFlagC = 1 / 4)
         {
-            Depth = depth;
-            EvaluationFunctions = new EvaluationFunctions(flagsTakenc, distc, nextFlagc);
+            this.depth = depth;
+            evaluationFunctions = new EvaluationFunctions(flagsTakenC, distC, nextFlagC);
         }
 
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
@@ -47,7 +47,7 @@ namespace AiAlgorithms.racing
                 var allCount = 0;
                 var evList = new List<double>();
                 var myCommands = new List<ICarCommand>();
-                while (allCount < Depth)
+                while (allCount < depth)
                 {
                     var pairInd = rnd.Next(10);
                     var count = rnd.Next(3, 10);
@@ -55,7 +55,7 @@ namespace AiAlgorithms.racing
                     myCommands.Add(command);
                     allCount += count;
                     for (var j = 0; j < count; j++)
-                        evList.Add(EvaluationFunctions.EvaluateCommand(state, ifFirstCar, thisFlag, command));
+                        evList.Add(evaluationFunctions.EvaluateCommand(state, ifFirstCar, thisFlag, command));
                 }
 
                 resList.Add((myCommands, evList.Max(), state));

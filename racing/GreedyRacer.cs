@@ -27,10 +27,11 @@ namespace AiAlgorithms.racing
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
             var chooser = new SimpleConsistentFlagChooser();
+            var pairWeighter = new SumWeighter();
             var pairOfFlags = chooser.GetNextFlagsFor(problem);
             //можно выбирать в choosemove, но тада может сходить только 1
-            var firstCarMoveScore = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag);
-            var secondCarMoveScore = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag);
+            var firstCarMove = ChooseMoveForCar(true, problem, pairOfFlags.FirstCarNextFlag);
+            var secondCarMove = ChooseMoveForCar(false, problem, pairOfFlags.SecondCarNextFlag);
             var firstCarExchangeScore = double.NegativeInfinity;
             var secondCarExchangeScore = double.NegativeInfinity;
             if (problem.ExchangeCooldown <= 0) //ващпе енто уже проверяется в тике
@@ -40,7 +41,8 @@ namespace AiAlgorithms.racing
                 secondCarExchangeScore = evaluationFunctions
                     .EvaluateExchange(problem, false, pairOfFlags.SecondCarNextFlag);
             }
-            if (firstCarExchangeScore + secondCarExchangeScore > firstCarMoveScore.Score + secondCarMoveScore.Score) // not "+"
+            if (pairWeighter.WeightPair(firstCarExchangeScore, secondCarExchangeScore) >
+                pairWeighter.WeightPair(firstCarMove.Score, secondCarMove.Score))
                 yield return new RaceSolution(new[]
                 {
                     ((ICarCommand) new ExchangeCommand(),
@@ -49,8 +51,8 @@ namespace AiAlgorithms.racing
             else
                 yield return new RaceSolution(new[]
                 {
-                    ((ICarCommand) new MoveCommand(firstCarMoveScore.Move),
-                        (ICarCommand) new MoveCommand(secondCarMoveScore.Move))
+                    ((ICarCommand) new MoveCommand(firstCarMove.Move),
+                        (ICarCommand) new MoveCommand(secondCarMove.Move))
                 });
         }
 
