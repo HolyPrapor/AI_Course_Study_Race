@@ -69,7 +69,7 @@ namespace AiAlgorithms.racing
             var log = variantsToLog
                 .Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}")
                 .StrJoin("\n");
-            aiLogger?.LogText(log);
+            //aiLogger?.LogText(log);
             var intensity = 1.0;
             foreach (var solution in variantsToLog)
             {

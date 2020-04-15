@@ -37,7 +37,7 @@ namespace AiAlgorithms.racing
 
         [Test]
         [Explicit("Тест для отладки и анализа")]
-        public void VisualizeRace([Values(2)] int testIndex)
+        public void VisualizeRace([Values(10)] int testIndex)
         {
             // Открой файл bin/Debug/*/racing/visualizer/index.html чтобы посмотреть реплей на тесте testIndex
             var greedyRacer = new RandomRacer();

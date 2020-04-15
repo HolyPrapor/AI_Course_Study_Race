@@ -30,7 +30,7 @@ namespace AiAlgorithms.racing
 
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
-            var chooser = new SimpleConsistentFlagChooser();
+            var chooser = new MaxDistFlagChooser();
             var (firstCarNextFlag, secondCarNextFlag) = chooser.GetNextFlagsFor(problem);
             var firstCarResult = ChooseMoveForCar(true, problem, firstCarNextFlag);
             var secondCarResult = ChooseMoveForCar(false, problem, secondCarNextFlag);

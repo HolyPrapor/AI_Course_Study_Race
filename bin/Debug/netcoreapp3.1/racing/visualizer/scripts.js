@@ -121,7 +121,7 @@ function convertTick(data){
         time: data[0],
         isFinished: data[1],
         firstCar: convertCar(data[2]),
-        secondCar: convertCar(data[3])
+        secondCar: convertCar(data[3]),
     };
 }
 
@@ -162,9 +162,10 @@ function drawEvent(tick){
     clearSpace();
     drawFlags(log.flags, firstCar, secondCar);
     drawObstacles(log.obstacles);
-    consoleOut = tick.time + "\n";
-    drawCar(firstCar);
-    drawCar(secondCar);
+    consoleOut = "Tick: " + tick.time + "\n";
+    consoleOut += "Debug info: " + firstCar.debugOutput + "\n";
+    drawCar(firstCar, "First car: ");
+    drawCar(secondCar, "Second car: ");
     con.innerText = consoleOut;
 }
 
@@ -182,7 +183,7 @@ function drawObstacles(obstacles){
 }
 
 function drawObstacle(o){
-    ctx.fillStyle = 'grey'
+    ctx.fillStyle = 'grey';
     ctx.fill(createDisk(...o));
 }
 
@@ -191,15 +192,17 @@ function drawFlag(flag, index, isNext) {
     ctx.fill(createDisk(flag[0], flag[1]));
 }
 
-function drawCar(car) {
+function drawCar(car, prependation) {
     const pos = car.pos;
     ctx.fillStyle = 'green';
     ctx.fill(createDisk(pos[0], pos[1], car.radius));
-    consoleOut += JSON.stringify(car) + "\n" + car.debugOutput;
     for(let line of car.debugLines){
         ctx.strokeStyle = "rgba(255,165,0," + line.intensity + ")";
         ctx.stroke(createLine(line));
     }
+    delete car.debugLines;
+    delete car.debugOutput;
+    consoleOut += prependation + JSON.stringify(car) + "\n";
 }
 
 function createLine(line){

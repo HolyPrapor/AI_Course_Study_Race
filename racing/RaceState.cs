@@ -62,7 +62,6 @@ namespace AiAlgorithms.racing
                             car.FlagsTaken++;
                         }
                 }
-
             Time++;
             ExchangeCooldown--;
         }
