@@ -11,7 +11,7 @@ namespace AiAlgorithms.racing
             double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1 / 4)
         {
             FlagChooser = new MaxDistFlagChooser();
-            MoveChooser = new RandomMoveChooser(depth, flagsTakenC, distC, nextFlagC);
+            MoveChooser = new RandomMoveChooser(new SumWeighter(),depth, flagsTakenC, distC, nextFlagC);
         }
     }
 }
