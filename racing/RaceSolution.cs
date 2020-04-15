@@ -11,9 +11,9 @@ namespace AiAlgorithms.racing
             CarCommands = carCommands;
         }
 
-        public double Score { get; set; }
-        
         public string Debug { get; set; }
+
+        public double Score { get; set; }
 
         public override string ToString()
         {

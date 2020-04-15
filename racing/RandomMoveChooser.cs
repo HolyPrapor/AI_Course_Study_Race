@@ -10,9 +10,9 @@ namespace AiAlgorithms.racing
         private static readonly ICarCommand[] Commands;
         private readonly int depth;
         private readonly EvaluationFunctions evaluationFunctions;
-        private List<ICarCommand> firstPreviousBest = null;
-        private List<ICarCommand> secondPreviousBest = null;
         private readonly IPairWeighter PairWeighter;
+        private List<ICarCommand> firstPreviousBest;
+        private List<ICarCommand> secondPreviousBest;
 
         static RandomMoveChooser()
         {
@@ -23,14 +23,28 @@ namespace AiAlgorithms.racing
                 .ToArray();
         }
 
-        public RandomMoveChooser(IPairWeighter pairWeight ,int depth = 20, 
-            double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1 / 4)
+        public RandomMoveChooser(IPairWeighter pairWeight, int depth = 20,
+            double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1d / 4)
         {
             this.depth = depth;
             evaluationFunctions = new EvaluationFunctions(flagsTakenC, distC, nextFlagC);
             PairWeighter = pairWeight;
         }
-        
+
+        public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand, double Score)[] GetCarCommands(
+            V nextFlagForFirstCar,
+            V nextFlagForSecondCar, RaceState raceState, out string debugInfo)
+        {
+            debugInfo = "";
+            var firstMoveAndScore = ChooseMoveForCar(true, raceState, nextFlagForFirstCar);
+            var secondMoveAndScore = ChooseMoveForCar(false, raceState, nextFlagForSecondCar);
+            return new[]
+            {
+                (firstMoveAndScore.Item1, secondMoveAndScore.Item1,
+                    PairWeighter.WeightPair(firstMoveAndScore.Item2, secondMoveAndScore.Item2))
+            };
+        }
+
         private (ICarCommand, double) ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag)
         {
             var rnd = new Random();
@@ -53,12 +67,12 @@ namespace AiAlgorithms.racing
                 }
                 resList.Add((myCommands, evList.Max(), state));
             }
+
             var prevBest = ifFirstCar ? firstPreviousBest : secondPreviousBest;
             if (prevBest != null)
-            {
                 foreach (var addingCommand in Commands)
                 {
-                    var addedList = new List<ICarCommand>(prevBest) { addingCommand };
+                    var addedList = new List<ICarCommand>(prevBest) {addingCommand};
                     var newState = problem.MakeCopy();
                     var scoreList = new List<double>();
                     foreach (var com in addedList)
@@ -66,7 +80,7 @@ namespace AiAlgorithms.racing
                     var newScore = scoreList.Max();
                     resList.Add((addedList, newScore, newState));
                 }
-            }
+
             var res_V = resList.OrderByDescending(pair => pair.Item2).First();
             var bestList = res_V.Item1.Skip(1).ToList();
             if (ifFirstCar)
@@ -74,19 +88,6 @@ namespace AiAlgorithms.racing
             else
                 secondPreviousBest = bestList;
             return (res_V.Item1.First(), res_V.Item2);
-        }
-        
-        public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand, double Score)[] GetCarCommands(V nextFlagForFirstCar,
-            V nextFlagForSecondCar, RaceState raceState, out string debugInfo)
-        {
-            debugInfo = "";
-            var firstMoveAndScore = ChooseMoveForCar(true, raceState, nextFlagForFirstCar);
-            var secondMoveAndScore = ChooseMoveForCar(false, raceState, nextFlagForSecondCar);
-            return new[]
-            {
-                (firstMoveAndScore.Item1,secondMoveAndScore.Item1,
-                PairWeighter.WeightPair(firstMoveAndScore.Item2, secondMoveAndScore.Item2))
-            };
         }
     }
 }

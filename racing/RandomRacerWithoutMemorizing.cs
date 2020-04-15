@@ -21,7 +21,7 @@ namespace AiAlgorithms.racing
         }
 
         public RandomRacerWithoutMemorizing(int depth = 20, double flagsTakenC = 10000, double distC = 1,
-            double nextFlagC = 1 / 4)
+            double nextFlagC = 1d / 4)
         {
             this.depth = depth;
             evaluationFunctions = new EvaluationFunctions(flagsTakenC, distC, nextFlagC);

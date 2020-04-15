@@ -91,7 +91,7 @@ namespace AiAlgorithms.racing
 
         [Test]
         [Explicit("���� ��� ������� � �������")]
-        public void VisualizeRace([Values(2)] int testIndex)
+        public void VisualizeRace([Values(10)] int testIndex)
         {
             // ������ ���� bin/Debug/*/racing/visualizer/index.html ����� ���������� ������ �� ����� testIndex
             var greedyRacer = new GreedyRacer();

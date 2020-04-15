@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using AiAlgorithms.Algorithms;
@@ -48,7 +47,8 @@ namespace AiAlgorithms.racing
             logger?.LogStart(race.Track);
             while (!race.IsFinished)
             {
-                var variants = solver.GetSolutions(race, aiTimeoutPerTickMs).ToList();
+                var variants = solver.GetSolutions(race.MakeCopy(),
+                    aiTimeoutPerTickMs).ToList();
                 var aiLogger = logger?.GetAiLogger(0);
                 LogAiVariants(race, aiLogger, variants);
                 var variant = variants.Last();
@@ -70,7 +70,8 @@ namespace AiAlgorithms.racing
             //    .Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}")
             //    .StrJoin("\n");
             //aiLogger?.LogText(log);
-            aiLogger?.LogText($"{{{string.Join(',', variantsToLog.Select(x => $"Score: {x.Score} DebugInfo: {x.Debug}"))}}}");
+            aiLogger?.LogText(
+                $"{{{string.Join(',', variantsToLog.Select(x => $"Score: {x.Score} DebugInfo: {x.Debug}"))}}}");
             var intensity = 1.0;
             foreach (var solution in variantsToLog)
             {
