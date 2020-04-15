@@ -169,6 +169,13 @@ function drawEvent(tick){
     con.innerText = consoleOut;
 }
 
+function replacer(key,value)
+{
+    if (key=="debugLines") return undefined;
+    else if (key=="debugOutput") return undefined;
+    else return value;
+}
+
 function drawFlags(flags, firstCar, secondCar){
     for(let i = 0; i < flags.length; i++){
         let isNext = i == (firstCar.flagsTaken + secondCar.flagsTaken) % flags.length;
@@ -200,9 +207,7 @@ function drawCar(car, prependation) {
         ctx.strokeStyle = "rgba(255,165,0," + line.intensity + ")";
         ctx.stroke(createLine(line));
     }
-    delete car.debugLines;
-    delete car.debugOutput;
-    consoleOut += prependation + JSON.stringify(car) + "\n";
+    consoleOut += prependation + JSON.stringify(car, replacer) + "\n";
 }
 
 function createLine(line){

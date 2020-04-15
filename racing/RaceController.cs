@@ -66,10 +66,11 @@ namespace AiAlgorithms.racing
         private void LogAiVariants(RaceState state, IGameAiLogger aiLogger, List<RaceSolution> variants)
         {
             var variantsToLog = variants.Cast<RaceSolution>().Reverse().Take(5).ToList();
-            var log = variantsToLog
-                .Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}")
-                .StrJoin("\n");
+            //var log = variantsToLog
+            //    .Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}")
+            //    .StrJoin("\n");
             //aiLogger?.LogText(log);
+            aiLogger?.LogText($"Score: {string.Join(',', variantsToLog.Select(x => x.Score))}");
             var intensity = 1.0;
             foreach (var solution in variantsToLog)
             {
