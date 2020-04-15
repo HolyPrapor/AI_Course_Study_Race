@@ -47,8 +47,8 @@ namespace AiAlgorithms.racing
         public void VisualizeRace([Values(10)] int testIndex)
         {
             // Открой файл bin/Debug/*/racing/visualizer/index.html чтобы посмотреть реплей на тесте testIndex
-            var greedyRacer = new RandomRacer();
-            var test = RaceProblemsRepo.GetTests().ElementAt(testIndex);
+            var greedyRacer = Racer;
+            var test = RaceProblemsRepo.GetTests().ElementAt(1);
             RaceController.Play(test, greedyRacer, true);
         }
     }

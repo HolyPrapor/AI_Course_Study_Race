@@ -197,13 +197,8 @@ C:\AI\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\AiAlgorithms.pdb
 C:\Users\pervu\Source\Repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\AiAlgorithms.dll
 C:\Users\pervu\Source\Repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\AiAlgorithms.pdb
 C:\Users\pervu\source\repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\aicourse.csprojAssemblyReference.cache
-C:\Users\pervu\source\repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\aicourse.csproj.CoreCompileInputs.cache
 C:\Users\pervu\source\repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\aicourse.AssemblyInfoInputs.cache
 C:\Users\pervu\source\repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\aicourse.AssemblyInfo.cs
-C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.dll
-C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.pdb
-C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\nunit.engine.dll
-C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\nunit.engine.api.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\racing\visualizer\index.html
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\racing\visualizer\scripts.js
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\racing\visualizer\styles.css
@@ -214,7 +209,6 @@ C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\AiAlgor
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\AiAlgorithms.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\AiAlgorithms.pdb
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
-C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Microsoft.DotNet.InternalAbstractions.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
@@ -225,8 +219,6 @@ C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Microso
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
-C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\nunit.framework.dll
-C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -294,3 +286,11 @@ C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\zh-Hant
 C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\pervu\source\repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\aicourse.csproj.CopyComplete
 C:\Users\pervu\source\repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\aicourse.genruntimeconfig.cache
+C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\nunit.framework.dll
+C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.dll
+C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\NUnit3.TestAdapter.pdb
+C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\nunit.engine.dll
+C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\nunit.engine.api.dll
+C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\Microsoft.DotNet.InternalAbstractions.dll
+C:\Users\pervu\source\repos\AI_Course_Study_Race\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\pervu\source\repos\AI_Course_Study_Race\obj\Debug\netcoreapp3.1\aicourse.csproj.CoreCompileInputs.cache
