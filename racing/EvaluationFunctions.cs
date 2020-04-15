@@ -35,10 +35,7 @@ namespace AiAlgorithms.racing
             var car = ifFirstCar ? state.FirstCar : state.SecondCar;
             car.NextCommand = command;
             state.Tick();
-            if (!car.IsAlive)
-            {
-                return double.MinValue;
-            }
+            if (!car.IsAlive) return double.MinValue;
 
             var nextFlag = state.GetNextFlag();
             var bonusToNextFlag = (car.Pos + car.V).DistTo(nextFlag) - car.Pos.DistTo(nextFlag);

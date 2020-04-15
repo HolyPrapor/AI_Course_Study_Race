@@ -6,10 +6,10 @@ namespace AiAlgorithms.racing
 {
     public class GreedyMoveChooser : IMoveChooser
     {
-        private readonly IPairWeighter PairWeighter;
         private static readonly List<V> Directions;
         private readonly int depth;
         private readonly EvaluationFunctions evaluationFunctions;
+        private readonly IPairWeighter PairWeighter;
 
         static GreedyMoveChooser()
         {
@@ -18,16 +18,17 @@ namespace AiAlgorithms.racing
                 .SelectMany(t => list, (t1, t2) => new V(t1, t2))
                 .ToList();
         }
-        
+
         public GreedyMoveChooser(IPairWeighter weighter, int depth = 20,
-            double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1 / 4)
+            double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1d / 4)
         {
             PairWeighter = weighter;
             this.depth = depth;
             evaluationFunctions = new EvaluationFunctions(flagsTakenC, distC, nextFlagC);
         }
-        
-        public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand, double Score)[] GetCarCommands(V nextFlagForFirstCar,
+
+        public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand, double Score)[] GetCarCommands(
+            V nextFlagForFirstCar,
             V nextFlagForSecondCar, RaceState raceState, out string debugInfo)
         {
             var firstCarMove = ChooseMoveForCar(true, raceState, nextFlagForFirstCar);
@@ -41,13 +42,17 @@ namespace AiAlgorithms.racing
                 secondCarExchangeScore = evaluationFunctions
                     .EvaluateExchange(raceState, false, nextFlagForSecondCar);
             }
+
             debugInfo = "";
             var exchangeWeight = PairWeighter.WeightPair(firstCarExchangeScore, secondCarExchangeScore);
             var moveWeight = PairWeighter.WeightPair(firstCarMove.Score, secondCarMove.Score);
-            if ( exchangeWeight > moveWeight)
-                return new[] {((ICarCommand) new ExchangeCommand(),
-                    (ICarCommand) new ExchangeCommand(),
-                    exchangeWeight)};
+            if (exchangeWeight > moveWeight)
+                return new[]
+                {
+                    ((ICarCommand) new ExchangeCommand(),
+                        (ICarCommand) new ExchangeCommand(),
+                        exchangeWeight)
+                };
             return new[]
             {
                 ((ICarCommand) new MoveCommand(firstCarMove.Move),
@@ -55,7 +60,7 @@ namespace AiAlgorithms.racing
                     moveWeight)
             };
         }
-        
+
         private (double Score, V Move) ChooseMoveForCar(bool ifFirstCar, RaceState problem, V thisFlag)
         {
             var dict = Directions.ToDictionary(pair => pair, pair => new List<double>());

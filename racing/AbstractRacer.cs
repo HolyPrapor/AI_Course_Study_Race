@@ -13,10 +13,10 @@ namespace AiAlgorithms.racing
         {
             var (firstCarFlag, secondCarFlag) = FlagChooser.GetNextFlagsFor(problem);
             var moves = MoveChooser.GetCarCommands(firstCarFlag, secondCarFlag,
-                problem, out var debugInfo).First();
-            yield return 
-                new RaceSolution(new[] { (moves.FirstCarCommand, moves.SecondCarCommand)}) 
-                {Debug = debugInfo};
+                problem, out var debugInfo);
+            yield return
+                new RaceSolution(moves.Select(x => (x.FirstCarCommand, x.SecondCarCommand)).ToArray())
+                    {Debug = debugInfo};
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using AiAlgorithms.Algorithms;
@@ -70,7 +69,8 @@ namespace AiAlgorithms.racing
             //    .Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}")
             //    .StrJoin("\n");
             //aiLogger?.LogText(log);
-            aiLogger?.LogText($"{{{string.Join(',', variantsToLog.Select(x => $"Score: {x.Score} DebugInfo: {x.Debug}"))}}}");
+            aiLogger?.LogText(
+                $"{{{string.Join(',', variantsToLog.Select(x => $"Score: {x.Score} DebugInfo: {x.Debug}"))}}}");
             var intensity = 1.0;
             foreach (var solution in variantsToLog)
             {
