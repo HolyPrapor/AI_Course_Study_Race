@@ -6,30 +6,12 @@ using System.Text;
 
 namespace AiAlgorithms.racing
 {
-    public class PreviousBest
-    {
-        public List<ICarCommand> commandList;
-        public double score;
-        public RaceState state;
-        public int carNumber;
-
-        public PreviousBest(int carN, List<ICarCommand> list, double sc, RaceState st)
-        {
-            carNumber = carN;
-            commandList = list;
-            score = sc;
-            state = st;
-        }
-    }
-
-    public class RandomRacer : ISolver<RaceState, RaceSolution>
+    class RandomRacerWithoutMemorizing : ISolver<RaceState, RaceSolution>
     {
         private int Depth;
         private static ICarCommand[] Commands;
-        public PreviousBest firstPreviousBest =null;
-        public PreviousBest secondPreviousBest = null;
         private EvaluationFunctions EvaluationFunctions;
-        static RandomRacer()
+        static RandomRacerWithoutMemorizing()
         {
             var list = new[] { 0, 1, -1 };
             Commands = list
@@ -38,7 +20,7 @@ namespace AiAlgorithms.racing
                 .ToArray();
         }
 
-        public RandomRacer(int depth = 20, double flagsTakenc = 10000, double distc = 1, double nextFlagc = 1 / 4)
+        public RandomRacerWithoutMemorizing(int depth = 20, double flagsTakenc = 10000, double distc = 1, double nextFlagc = 1 / 4)
         {
             Depth = depth;
             EvaluationFunctions = new EvaluationFunctions(flagsTakenc, distc, nextFlagc);
@@ -72,25 +54,11 @@ namespace AiAlgorithms.racing
                     myCommands.Add(command);
                     allCount += count;
                     for (int j = 0; j < count; j++)
-                        evList.Add(EvaluationFunctions.EvaluateCommand(state,ifFirstCar,thisFlag,command));
+                        evList.Add(EvaluationFunctions.EvaluateCommand(state, ifFirstCar, thisFlag, command));
                 }
                 resList.Add((myCommands, evList.Max(), state));
             }
-            var prevBest = ifFirstCar ? firstPreviousBest : secondPreviousBest;
-            if (prevBest != null)
-            {
-                foreach (var addingCommand in Commands) 
-                {
-                    var addedList = new List<ICarCommand>(prevBest.commandList);
-                    addedList.Add(addingCommand);
-                    prevBest.score += EvaluationFunctions.EvaluateCommand(prevBest.state,
-                        ifFirstCar, thisFlag, addingCommand);
-                    resList.Add((prevBest.commandList, prevBest.score, prevBest.state));
-                }
-            }
             var res_V = resList.OrderByDescending(pair => pair.Item2).First();
-            var bestList = res_V.Item1.Skip(1).ToList();
-            prevBest = new PreviousBest(ifFirstCar?1:2,bestList, res_V.Item2, res_V.Item3);
             return res_V.Item1.First();
         }
     }
