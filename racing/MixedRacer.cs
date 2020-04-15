@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using AiAlgorithms.Algorithms;
+using System.Text;
 
 namespace AiAlgorithms.racing
 {
-    public class RandomRacer : AbstractRacer
+    class MixedRacer : AbstractRacer
     {
-        public RandomRacer(int depth = 20,
+        public MixedRacer(int depth = 20,
             double flagsTakenC = 10000, double distC = 1, double nextFlagC = 0.25)
         {
             FlagChooser = new MaxDistFlagChooser();
-            MoveChooser = new RandomMoveChooser(new SumWeighter(), depth, flagsTakenC, distC, nextFlagC);
+            MoveChooser = new MixedMoveChooser(depth, flagsTakenC, distC, nextFlagC);
         }
     }
 }

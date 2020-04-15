@@ -11,7 +11,7 @@ namespace AiAlgorithms.racing
         public double MinScoreToPassTest => 8400;
 
         public double CalculateScore1(int depth = 20, double flagsTakenc = 10000,
-            double distc = 1, double nextFlagc = 1 / 4)
+            double distc = 1, double nextFlagc = 0.25)
         {
             var score = 0.0;
             var iTest = 0;
