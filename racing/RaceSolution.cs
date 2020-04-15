@@ -12,6 +12,8 @@ namespace AiAlgorithms.racing
         }
 
         public double Score { get; set; }
+        
+        public string Debug { get; set; }
 
         public override string ToString()
         {

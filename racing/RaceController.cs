@@ -70,7 +70,7 @@ namespace AiAlgorithms.racing
             //    .Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}")
             //    .StrJoin("\n");
             //aiLogger?.LogText(log);
-            aiLogger?.LogText($"Score: {string.Join(',', variantsToLog.Select(x => x.Score))}");
+            aiLogger?.LogText($"{{{string.Join(',', variantsToLog.Select(x => $"Score: {x.Score} DebugInfo: {x.Debug}"))}}}");
             var intensity = 1.0;
             foreach (var solution in variantsToLog)
             {
