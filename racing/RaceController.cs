@@ -15,7 +15,7 @@ namespace AiAlgorithms.racing
         public static RaceState Play(RaceState state, ISolver<RaceState, RaceSolution> racer, bool makeLog)
         {
             if (!makeLog)
-                return new RaceController().Play(state, racer, null, timeoutPerTick);
+                return new RaceController().Play(state, racer, null);
             var filename = Path.Combine(
                 TestContext.CurrentContext.TestDirectory,
                 "racing",
@@ -23,7 +23,7 @@ namespace AiAlgorithms.racing
                 "last-log.js"
             );
             using var streamWriter = new StreamWriter(filename);
-            var result = new RaceController().Play(state, racer, new JsonGameLogger(streamWriter), timeoutPerTick);
+            var result = new RaceController().Play(state, racer, new JsonGameLogger(streamWriter));
             Console.WriteLine(result.Time + "\t" + result.FirstCar + "\t" + result.SecondCar);
             return result;
         }
@@ -58,6 +58,7 @@ namespace AiAlgorithms.racing
                 logger?.LogTick(race);
                 race.Tick();
             }
+
             logger?.LogEnd(race);
             return race;
         }
@@ -65,7 +66,9 @@ namespace AiAlgorithms.racing
         private void LogAiVariants(RaceState state, IGameAiLogger aiLogger, List<RaceSolution> variants)
         {
             var variantsToLog = variants.Cast<RaceSolution>().Reverse().Take(5).ToList();
-            var log = variantsToLog.Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}").StrJoin("\n");
+            var log = variantsToLog
+                .Select(v => $"{v.Score.ToString(CultureInfo.InvariantCulture)} {v.CarCommands.StrJoin(",")}")
+                .StrJoin("\n");
             aiLogger?.LogText(log);
             var intensity = 1.0;
             foreach (var solution in variantsToLog)
@@ -85,6 +88,7 @@ namespace AiAlgorithms.racing
                     aiLogger?.LogLine(startSecond, a.secondCarCommand is ExchangeCommand ? startFirst : endSecond,
                         intensity);
                 }
+
                 intensity *= 0.7;
             }
         }

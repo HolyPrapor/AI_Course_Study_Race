@@ -10,17 +10,13 @@ namespace AiAlgorithms.Algorithms
         public readonly int X;
         public readonly int Y;
 
-        public static V Parse(string s)
-        {
-            var parts = s.Split(',');
-            return new V(int.Parse(parts[0]), int.Parse(parts[1]));
-        }
-
         public V(int x, int y)
         {
             X = x;
             Y = y;
         }
+
+        public long Len2 => (long) X * X + (long) Y * Y;
 
         public bool Equals(V other)
         {
@@ -31,6 +27,12 @@ namespace AiAlgorithms.Algorithms
             return X.Equals(other.X) && Y.Equals(other.Y);
         }
 
+        public static V Parse(string s)
+        {
+            var parts = s.Split(',');
+            return new V(int.Parse(parts[0]), int.Parse(parts[1]));
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -39,7 +41,7 @@ namespace AiAlgorithms.Algorithms
                 return true;
             if (obj.GetType() != GetType())
                 return false;
-            return Equals((V)obj);
+            return Equals((V) obj);
         }
 
         public override int GetHashCode()
@@ -50,10 +52,15 @@ namespace AiAlgorithms.Algorithms
             }
         }
 
-        public static bool operator ==(V left, V right) => Equals(left, right);
-        public static bool operator !=(V left, V right) => !Equals(left, right);
+        public static bool operator ==(V left, V right)
+        {
+            return Equals(left, right);
+        }
 
-        public long Len2 => (long)X * X + (long)Y * Y;
+        public static bool operator !=(V left, V right)
+        {
+            return !Equals(left, right);
+        }
 
         public override string ToString()
         {
@@ -62,23 +69,60 @@ namespace AiAlgorithms.Algorithms
 
         public static implicit operator V(string s)
         {
-            var parts = s.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var parts = s.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
             var x = int.Parse(parts[0], CultureInfo.InvariantCulture);
             var y = int.Parse(parts[1], CultureInfo.InvariantCulture);
             return new V(x, y);
         }
 
-        public static V operator +(V a, V b) => new V(a.X + b.X, a.Y + b.Y);
-        public static V operator -(V a, V b) => new V(a.X - b.X, a.Y - b.Y);
-        public static V operator -(V a) => new V(-a.X, -a.Y);
-        public static V operator *(V a, int k) => new V(k * a.X, k * a.Y);
-        public static V operator *(int k, V a) => new V(k * a.X, k * a.Y);
-        public static V operator /(V a, int k) => new V(a.X / k, a.Y / k);
-        public static long operator *(V a, V b) => a.X * b.X + a.Y * b.Y;
-        public static long operator ^(V a, V b) => a.X * b.Y - a.Y * b.X;
+        public static V operator +(V a, V b)
+        {
+            return new V(a.X + b.X, a.Y + b.Y);
+        }
 
-        public long Dist2To(V point) => (this - point).Len2;
+        public static V operator -(V a, V b)
+        {
+            return new V(a.X - b.X, a.Y - b.Y);
+        }
 
-        public double DistTo(V b) => Math.Sqrt(Dist2To(b));
+        public static V operator -(V a)
+        {
+            return new V(-a.X, -a.Y);
+        }
+
+        public static V operator *(V a, int k)
+        {
+            return new V(k * a.X, k * a.Y);
+        }
+
+        public static V operator *(int k, V a)
+        {
+            return new V(k * a.X, k * a.Y);
+        }
+
+        public static V operator /(V a, int k)
+        {
+            return new V(a.X / k, a.Y / k);
+        }
+
+        public static long operator *(V a, V b)
+        {
+            return a.X * b.X + a.Y * b.Y;
+        }
+
+        public static long operator ^(V a, V b)
+        {
+            return a.X * b.Y - a.Y * b.X;
+        }
+
+        public long Dist2To(V point)
+        {
+            return (this - point).Len2;
+        }
+
+        public double DistTo(V b)
+        {
+            return Math.Sqrt(Dist2To(b));
+        }
     }
 }

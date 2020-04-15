@@ -43,12 +43,12 @@ namespace AiAlgorithms
             var score = scoringTest.CalculateScore();
             var output = $"Your score is {score.ToString(CultureInfo.InvariantCulture)}";
             if (score >= scoringTest.MinScoreToPassTest)
-            {
                 return new RunResult(Verdict.Ok, $"{output}\n\n{newOut}", score);
-            }
-            return new RunResult(Verdict.RuntimeError, $"{output} is too low. Gain at least {scoringTest.MinScoreToPassTest}!\n\n{newOut}", score);
+            return new RunResult(Verdict.RuntimeError,
+                $"{output} is too low. Gain at least {scoringTest.MinScoreToPassTest}!\n\n{newOut}", score);
         }
     }
+
     public enum Verdict
     {
         NA = 0,
@@ -64,21 +64,21 @@ namespace AiAlgorithms
 
     public class RunResult
     {
-        public Verdict Verdict { get; set; }
-        public string Output { get; set; }
-        public double? Points { get; set; }
-
         public RunResult(Verdict verdict, string output = "", double? points = null)
         {
             Verdict = verdict;
-            Output = output ?? ""; 
+            Output = output ?? "";
             Points = points;
         }
+
+        public Verdict Verdict { get; set; }
+        public string Output { get; set; }
+        public double? Points { get; set; }
     }
 
     public interface IScoredTest
     {
-        double CalculateScore();
         double MinScoreToPassTest { get; }
+        double CalculateScore();
     }
 }

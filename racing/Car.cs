@@ -26,7 +26,7 @@ namespace AiAlgorithms.racing
 
         public static Car ParseCar(string s)
         {
-            var parts = s.Split(new []{' '});
+            var parts = s.Split(new[] {' '});
             return new Car(V.Parse(parts[0]), V.Parse(parts[1]), int.Parse(parts[2]));
         }
 

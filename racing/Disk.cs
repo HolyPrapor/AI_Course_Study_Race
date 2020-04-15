@@ -27,7 +27,7 @@ namespace AiAlgorithms.racing
 
         public static Disk ParseDisk(string s)
         {
-            var parts = s.Split(new []{','}).Select(int.Parse).ToList();
+            var parts = s.Split(new[] {','}).Select(int.Parse).ToList();
             return new Disk(new V(parts[0], parts[1]), parts[2]);
         }
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -61,11 +60,11 @@ namespace AiAlgorithms.racing
         private string Car2Json(Car car, string output, List<Line> lines)
         {
             var carJson = string.Join(
-                ",", 
-                car.Pos, car.V, car.Radius, 
+                ",",
+                car.Pos, car.V, car.Radius,
                 car.FlagsTaken,
-                car.IsAlive ? 1 : 0, 
-                car.NextCommand, 
+                car.IsAlive ? 1 : 0,
+                car.NextCommand,
                 $"\"{EscapeJsonString(output)}\"",
                 $"[{lines.StrJoin(",", Line2Json)}]");
             return $"[{carJson}]";

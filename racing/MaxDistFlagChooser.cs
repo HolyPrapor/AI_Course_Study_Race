@@ -1,9 +1,8 @@
-﻿using System;
-using AiAlgorithms.Algorithms;
+﻿using AiAlgorithms.Algorithms;
 
 namespace AiAlgorithms.racing
 {
-    class MaxDistFlagChooser : IFlagChooser
+    internal class MaxDistFlagChooser : IFlagChooser
     {
         public (V FirstCarNextFlag, V SecondCarNextFlag) GetNextFlagsFor(RaceState state)
         {
@@ -11,7 +10,7 @@ namespace AiAlgorithms.racing
             var maxDist = 0.0;
             var flagIndex = 0;
 
-            for(var i = 1; i < state.Track.Flags.Count; i++)
+            for (var i = 1; i < state.Track.Flags.Count; i++)
             {
                 var curF1 = state.Track.Flags[i];
                 var curF2 = i == state.Track.Flags.Count - 1 ? state.Track.Flags[0] : state.Track.Flags[i + 1];

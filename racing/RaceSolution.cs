@@ -11,11 +11,11 @@ namespace AiAlgorithms.racing
             CarCommands = carCommands;
         }
 
+        public double Score { get; set; }
+
         public override string ToString()
         {
             return $"Score: {Score}, Commands (TODO:): {CarCommands.StrJoin(" ")}";
         }
-
-        public double Score { get; set; }
     }
 }

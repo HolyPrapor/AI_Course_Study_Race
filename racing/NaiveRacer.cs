@@ -15,8 +15,10 @@ namespace AiAlgorithms.racing
             yield return new RaceSolution(new (
                 ICarCommand firstCarAcceleration,
                 ICarCommand secondCarAcceleration)[]
-                {(new MoveCommand(new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y))),
-                    new MoveCommand(new V(Math.Sign(secondDelta.X), Math.Sign(secondDelta.Y))))});
+                {
+                    (new MoveCommand(new V(Math.Sign(firstDelta.X), Math.Sign(firstDelta.Y))),
+                        new MoveCommand(new V(Math.Sign(secondDelta.X), Math.Sign(secondDelta.Y))))
+                });
         }
     }
 }

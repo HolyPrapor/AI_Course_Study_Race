@@ -31,7 +31,7 @@
       "dependencies": {
         "Microsoft.NET.Test.Sdk": {
           "target": "Package",
-          "version": "[16.*, )"
+          "version": "[16.5.0, )"
         },
         "NUnit": {
           "target": "Package",

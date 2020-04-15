@@ -2,7 +2,7 @@
 
 namespace AiAlgorithms.racing
 {
-    class SimpleConsistentFlagChooser : IFlagChooser
+    internal class SimpleConsistentFlagChooser : IFlagChooser
     {
         public (V FirstCarNextFlag, V SecondCarNextFlag) GetNextFlagsFor(RaceState state)
         {

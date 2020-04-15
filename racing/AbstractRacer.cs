@@ -5,8 +5,9 @@ namespace AiAlgorithms.racing
 {
     public abstract class AbstractRacer : ISolver<RaceState, RaceSolution>
     {
-        protected readonly IMoveChooser MoveChooser;
         protected readonly IFlagChooser FlagChooser;
+        protected readonly IMoveChooser MoveChooser;
+
         public IEnumerable<RaceSolution> GetSolutions(RaceState problem, Countdown countdown)
         {
             var (firstCarFlag, secondCarFlag) = FlagChooser.GetNextFlagsFor(problem);

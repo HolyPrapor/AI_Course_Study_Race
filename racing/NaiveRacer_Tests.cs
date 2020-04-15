@@ -8,7 +8,7 @@ namespace AiAlgorithms.racing
     {
         [Test]
         [Explicit("Тест для отладки и анализа")]
-        public void VisualizeRace([Values(8)]int testIndex)
+        public void VisualizeRace([Values(8)] int testIndex)
         {
             // Открой файл bin/Debug/*/racing/visualizer/index.html чтобы посмотреть реплей на тесте testIndex
             var racer = new NaiveRacer();

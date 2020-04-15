@@ -7,7 +7,6 @@ namespace AiAlgorithms.racing
 {
     public class RaceProblemsRepo
     {
-
         public static V[] Vectors(string s)
         {
             return s.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
@@ -20,19 +19,22 @@ namespace AiAlgorithms.racing
                 .Select(Disk.ParseDisk).ToArray();
         }
 
-        public static IEnumerable<RaceState> Generate(int count, int fieldSize, int flagsCount, Random random) =>
-            Enumerable.Range(0, count).Select(i => Generate(fieldSize, flagsCount, random));
+        public static IEnumerable<RaceState> Generate(int count, int fieldSize, int flagsCount, Random random)
+        {
+            return Enumerable.Range(0, count).Select(i => Generate(fieldSize, flagsCount, random));
+        }
 
         public static RaceState Generate2Lines(int fieldSize, int flagsCount, Random random)
         {
-            var flags = Enumerable.Range(0, flagsCount/2)
-                .Select(i => new V(10+ 10*i, 0))
-                .Concat(Enumerable.Range(0, flagsCount / 2).Select(i => new V(10 + 10 * flagsCount / 2 - 10*i, 20)))
+            var flags = Enumerable.Range(0, flagsCount / 2)
+                .Select(i => new V(10 + 10 * i, 0))
+                .Concat(Enumerable.Range(0, flagsCount / 2).Select(i => new V(10 + 10 * flagsCount / 2 - 10 * i, 20)))
                 .ToList();
             var raceTrack = new RaceTrack(flags, new List<Disk>(), fieldSize * 5, flagsCount * 10);
             return new RaceState(raceTrack, new Car(new V(-5, 0), V.Zero, 0),
                 new Car(new V(5, 0), V.Zero, 0));
         }
+
         public static RaceState GenerateLine(int fieldSize, int flagsCount, Random random)
         {
             var flags = Enumerable.Range(0, flagsCount)
@@ -42,6 +44,7 @@ namespace AiAlgorithms.racing
             return new RaceState(raceTrack, new Car(new V(-5, 0), V.Zero, 0),
                 new Car(new V(5, 0), V.Zero, 0));
         }
+
         public static RaceState Generate(int fieldSize, int flagsCount, Random random)
         {
             var flags = Enumerable.Range(0, flagsCount)
@@ -74,10 +77,12 @@ namespace AiAlgorithms.racing
             yield return Generate(100, 8, random);
             yield return Generate(100, 5, random);
             yield return new RaceState(
-                new RaceTrack(Vectors("50,-40 100,0 0,0"), Disks("50,0,10 50,10,10 50,-10,10 50,-20,10 50,20,10 50,30,10"), 200, 10),
+                new RaceTrack(Vectors("50,-40 100,0 0,0"),
+                    Disks("50,0,10 50,10,10 50,-10,10 50,-20,10 50,20,10 50,30,10"), 200, 10),
                 Car.ParseCar("-5,0 0,0 5"), Car.ParseCar("5,0 0,0 5"));
             yield return new RaceState(
-                new RaceTrack(Vectors("100,0 0,0"), Disks("50,0,10 50,10,10 50,-10,10 50,-20,10 50,20,10 50,30,10"), 200, 10),
+                new RaceTrack(Vectors("100,0 0,0"), Disks("50,0,10 50,10,10 50,-10,10 50,-20,10 50,20,10 50,30,10"),
+                    200, 10),
                 Car.ParseCar("-5,0 0,0 5"), Car.ParseCar("5,0 0,0 5"));
             yield return new RaceState(
                 new RaceTrack(Vectors("-140,7 -10,17 140,3 -140,-7 -10,-17 140,-3"), Disks(""), 300, 10),

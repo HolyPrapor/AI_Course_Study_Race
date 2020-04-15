@@ -6,7 +6,7 @@ namespace AiAlgorithms.Algorithms
     {
         TimeSpan Time { get; set; }
     }
-    
+
     public interface IHaveIndex
     {
         int MutationIndex { get; set; }

@@ -14,7 +14,7 @@ namespace AiAlgorithms.Algorithms
         {
             foreach (var value in values) Add(value);
         }
-        
+
         public StatValue(IEnumerable<int> values)
         {
             foreach (var value in values) Add(value);

@@ -11,7 +11,10 @@ namespace AiAlgorithms.Algorithms
             return Math.Abs(a - b);
         }
 
-        public static double Squared(this double x) => x * x;
+        public static double Squared(this double x)
+        {
+            return x * x;
+        }
 
         public static int IndexOf<T>(this IEnumerable<T> items, Func<T, bool> predicate)
         {

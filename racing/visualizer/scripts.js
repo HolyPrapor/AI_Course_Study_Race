@@ -182,7 +182,7 @@ function drawObstacles(obstacles){
 }
 
 function drawObstacle(o){
-    ctx.fillStyle = 'grey'
+    ctx.fillStyle = 'grey';
     ctx.fill(createDisk(...o));
 }
 

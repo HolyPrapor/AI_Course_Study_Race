@@ -7,12 +7,10 @@ namespace AiAlgorithms.racing
 {
     public class RaceState
     {
-        public readonly RaceTrack Track;
+        private readonly IReadOnlyCollection<Car> cars;
         public readonly Car FirstCar;
         public readonly Car SecondCar;
-        private readonly IReadOnlyCollection<Car> cars;
-        public int FlagsTaken { get; private set; }
-        public int ExchangeCooldown { get; private set; }
+        public readonly RaceTrack Track;
 
         public RaceState(RaceTrack track, Car firstCar, Car secondCar)
         {
@@ -22,19 +20,25 @@ namespace AiAlgorithms.racing
             cars = new List<Car> {FirstCar, SecondCar};
         }
 
+        public int FlagsTaken { get; private set; }
+        public int ExchangeCooldown { get; private set; }
+
         public int Time { get; private set; }
         public bool IsFinished => Time >= Track.RaceDuration || FlagsTaken >= Track.FlagsToTake;
 
         public RaceState MakeCopy()
         {
-            return new RaceState(Track, FirstCar.MakeCopy(), SecondCar.MakeCopy()) {Time = Time,
-                ExchangeCooldown = ExchangeCooldown, FlagsTaken = FlagsTaken};
+            return new RaceState(Track, FirstCar.MakeCopy(), SecondCar.MakeCopy())
+            {
+                Time = Time,
+                ExchangeCooldown = ExchangeCooldown, FlagsTaken = FlagsTaken
+            };
         }
 
         public void Tick()
         {
             if (IsFinished) return;
-            if (FirstCar.NextCommand is ExchangeCommand && SecondCar.NextCommand is ExchangeCommand && 
+            if (FirstCar.NextCommand is ExchangeCommand && SecondCar.NextCommand is ExchangeCommand &&
                 ExchangeCooldown <= 0)
             {
                 var temp = FirstCar.V;
@@ -42,8 +46,8 @@ namespace AiAlgorithms.racing
                 SecondCar.V = temp;
                 ExchangeCooldown = 20;
             }
+
             foreach (var car in cars)
-            {
                 if (car.IsAlive)
                 {
                     var initialPos = car.Pos;
@@ -58,7 +62,7 @@ namespace AiAlgorithms.racing
                             car.FlagsTaken++;
                         }
                 }
-            }
+
             Time++;
             ExchangeCooldown--;
         }

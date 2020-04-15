@@ -10,8 +10,8 @@ namespace AiAlgorithms.Algorithms
         protected readonly IMutator<TProblem, TSolution> mutator;
         private readonly bool stopOnRepeatedMutation;
         private IMutation<TSolution> firstMutation;
-        private int mutationsCount;
         private int improvementsCount;
+        private int mutationsCount;
 
         public HillClimbing(ISolver<TProblem, TSolution> baseSolver, IMutator<TProblem, TSolution> mutator,
             bool stopOnRepeatedMutation = false)
@@ -43,6 +43,7 @@ namespace AiAlgorithms.Algorithms
                         withIndex.MutationIndex = mutationsCount;
                         withIndex.ImprovementIndex = improvementsCount;
                     }
+
                     steps.Add(solution);
                 }
 
