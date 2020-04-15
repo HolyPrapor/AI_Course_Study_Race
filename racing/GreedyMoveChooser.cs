@@ -27,15 +27,14 @@ namespace AiAlgorithms.racing
             evaluationFunctions = new EvaluationFunctions(flagsTakenC, distC, nextFlagC);
         }
         
-        public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand)[] GetCarCommands(V nextFlagForFirstCar,
+        public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand, double Score)[] GetCarCommands(V nextFlagForFirstCar,
             V nextFlagForSecondCar, RaceState raceState, out string debugInfo)
         {
-            //ìîæíî âûáèðàòü â choosemove, íî òàäà ìîæåò ñõîäèòü òîëüêî 1
             var firstCarMove = ChooseMoveForCar(true, raceState, nextFlagForFirstCar);
             var secondCarMove = ChooseMoveForCar(false, raceState, nextFlagForSecondCar);
             var firstCarExchangeScore = double.NegativeInfinity;
             var secondCarExchangeScore = double.NegativeInfinity;
-            if (raceState.ExchangeCooldown <= 0) //âàùïå åíòî óæå ïðîâåðÿåòñÿ â òèêå
+            if (raceState.ExchangeCooldown <= 0)
             {
                 firstCarExchangeScore = evaluationFunctions
                     .EvaluateExchange(raceState, true, nextFlagForFirstCar);
@@ -43,13 +42,17 @@ namespace AiAlgorithms.racing
                     .EvaluateExchange(raceState, false, nextFlagForSecondCar);
             }
             debugInfo = "";
-            if (PairWeighter.WeightPair(firstCarExchangeScore, secondCarExchangeScore) >
-                PairWeighter.WeightPair(firstCarMove.Score, secondCarMove.Score))
-                return new[] {((ICarCommand) new ExchangeCommand(), (ICarCommand) new ExchangeCommand())};
+            var exchangeWeight = PairWeighter.WeightPair(firstCarExchangeScore, secondCarExchangeScore);
+            var moveWeight = PairWeighter.WeightPair(firstCarMove.Score, secondCarMove.Score);
+            if ( exchangeWeight > moveWeight)
+                return new[] {((ICarCommand) new ExchangeCommand(),
+                    (ICarCommand) new ExchangeCommand(),
+                    exchangeWeight)};
             return new[]
             {
                 ((ICarCommand) new MoveCommand(firstCarMove.Move),
-                    (ICarCommand) new MoveCommand(secondCarMove.Move))
+                    (ICarCommand) new MoveCommand(secondCarMove.Move),
+                    moveWeight)
             };
         }
         

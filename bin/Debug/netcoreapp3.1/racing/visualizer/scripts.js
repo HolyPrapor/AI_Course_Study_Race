@@ -121,7 +121,7 @@ function convertTick(data){
         time: data[0],
         isFinished: data[1],
         firstCar: convertCar(data[2]),
-        secondCar: convertCar(data[3]),
+        secondCar: convertCar(data[3])
     };
 }
 
@@ -162,18 +162,10 @@ function drawEvent(tick){
     clearSpace();
     drawFlags(log.flags, firstCar, secondCar);
     drawObstacles(log.obstacles);
-    consoleOut = "Tick: " + tick.time + "\n";
-    consoleOut += "Debug info: " + firstCar.debugOutput + "\n";
-    drawCar(firstCar, "First car: ");
-    drawCar(secondCar, "Second car: ");
+    consoleOut = tick.time + "\n";
+    drawCar(firstCar);
+    drawCar(secondCar);
     con.innerText = consoleOut;
-}
-
-function replacer(key,value)
-{
-    if (key=="debugLines") return undefined;
-    else if (key=="debugOutput") return undefined;
-    else return value;
 }
 
 function drawFlags(flags, firstCar, secondCar){
@@ -199,15 +191,15 @@ function drawFlag(flag, index, isNext) {
     ctx.fill(createDisk(flag[0], flag[1]));
 }
 
-function drawCar(car, prependation) {
+function drawCar(car) {
     const pos = car.pos;
     ctx.fillStyle = 'green';
     ctx.fill(createDisk(pos[0], pos[1], car.radius));
+    consoleOut += JSON.stringify(car) + "\n" + car.debugOutput;
     for(let line of car.debugLines){
         ctx.strokeStyle = "rgba(255,165,0," + line.intensity + ")";
         ctx.stroke(createLine(line));
     }
-    consoleOut += prependation + JSON.stringify(car, replacer) + "\n";
 }
 
 function createLine(line){
