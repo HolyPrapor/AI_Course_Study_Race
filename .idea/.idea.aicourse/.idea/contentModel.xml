@@ -36,6 +36,7 @@
         <e p="EvaluationFunctions.cs" t="Include" />
         <e p="ExchangeCommand.cs" t="Include" />
         <e p="firebase.json" t="Include" />
+        <e p="GreedyMoveChooser.cs" t="Include" />
         <e p="GreedyRacer.cs" t="Include" />
         <e p="GreedyRacer_Tests.cs" t="Include" />
         <e p="ICarCommand.cs" t="Include" />
