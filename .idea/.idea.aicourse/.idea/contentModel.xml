@@ -45,6 +45,7 @@
         <e p="IMoveChooser.cs" t="Include" />
         <e p="IPairWeighter.cs" t="Include" />
         <e p="MaxDistFlagChooser.cs" t="Include" />
+        <e p="MixedMoveChooser.cs" t="Include" />
         <e p="MoveCommand.cs" t="Include" />
         <e p="NaiveRacer.cs" t="Include" />
         <e p="NaiveRacer_Tests.cs" t="Include" />
@@ -54,6 +55,7 @@
         <e p="RaceSolution.cs" t="Include" />
         <e p="RaceState.cs" t="Include" />
         <e p="RaceTrack.cs" t="Include" />
+        <e p="RandomMoveChooser.cs" t="Include" />
         <e p="RandomRacer.cs" t="Include" />
         <e p="RandomRacer_Tests.cs" t="Include" />
         <e p="RandomRacerWithoutMemorizing.cs" t="Include" />
