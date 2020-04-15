@@ -65,7 +65,6 @@ namespace AiAlgorithms.racing
                     for (var j = 0; j < count; j++)
                         evList.Add(evaluationFunctions.EvaluateCommand(state, ifFirstCar, thisFlag, command));
                 }
-
                 resList.Add((myCommands, evList.Max(), state));
             }
 

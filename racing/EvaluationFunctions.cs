@@ -36,13 +36,12 @@ namespace AiAlgorithms.racing
             car.NextCommand = command;
             state.Tick();
             if (!car.IsAlive) return double.MinValue;
-
-            var nextFlag = state.GetNextFlag();
-            var bonusToNextFlag = (car.Pos + car.V).DistTo(nextFlag) - car.Pos.DistTo(nextFlag);
+            //var nextFlag = state.GetNextFlag();
+            //var bonusToNextFlag = (car.Pos + car.V).DistTo(nextFlag) - car.Pos.DistTo(nextFlag);
             var evaluation =
                 flagsTakenCoeff * car.FlagsTaken
-                - distToFlagCoeff * thisFlag.DistTo(car.Pos)
-                - bonusToNextFlagCoef * bonusToNextFlag;
+                - distToFlagCoeff * thisFlag.DistTo(car.Pos);
+                    //- bonusToNextFlagCoef * bonusToNextFlag;
             return evaluation;
         }
     }

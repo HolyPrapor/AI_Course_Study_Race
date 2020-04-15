@@ -47,7 +47,8 @@ namespace AiAlgorithms.racing
             logger?.LogStart(race.Track);
             while (!race.IsFinished)
             {
-                var variants = solver.GetSolutions(race, aiTimeoutPerTickMs).ToList();
+                var variants = solver.GetSolutions(race.MakeCopy(),
+                    aiTimeoutPerTickMs).ToList();
                 var aiLogger = logger?.GetAiLogger(0);
                 LogAiVariants(race, aiLogger, variants);
                 var variant = variants.Last();

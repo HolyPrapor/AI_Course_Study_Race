@@ -42,10 +42,9 @@ namespace AiAlgorithms.racing
                 secondCarExchangeScore = evaluationFunctions
                     .EvaluateExchange(raceState, false, nextFlagForSecondCar);
             }
-
-            debugInfo = "";
             var exchangeWeight = PairWeighter.WeightPair(firstCarExchangeScore, secondCarExchangeScore);
             var moveWeight = PairWeighter.WeightPair(firstCarMove.Score, secondCarMove.Score);
+            debugInfo = $"Exchange: {exchangeWeight}, Move: {moveWeight}";
             if (exchangeWeight > moveWeight)
                 return new[]
                 {

@@ -27,9 +27,10 @@ namespace AiAlgorithms.racing
                     nextFlagForSecondCar, raceState, out var debug));
                 debugInfo += debug + "\n";
             }
-
-            var best = results.OrderByDescending(tup => tup.Score).First();
-            return new[] {best};
+            var best = results
+                .OrderByDescending(tup => tup.Score)
+                .ToArray();
+            return best;
         }
     }
 }
