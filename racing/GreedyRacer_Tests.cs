@@ -95,7 +95,7 @@ namespace AiAlgorithms.racing
         {
             // ������ ���� bin/Debug/*/racing/visualizer/index.html ����� ���������� ������ �� ����� testIndex
             var greedyRacer = new GreedyRacer();
-            var test = RaceProblemsRepo.GetTests().ElementAt(1);
+            var test = RaceProblemsRepo.GetTests().ElementAt(testIndex);
             RaceController.Play(test, greedyRacer, true);
         }
     }
