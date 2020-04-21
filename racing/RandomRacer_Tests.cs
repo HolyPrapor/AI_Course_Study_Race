@@ -33,11 +33,16 @@ namespace AiAlgorithms.racing
         [Test]
         public void MeanAndConfForAll()
         {
+
             var count = RaceProblemsRepo.GetTests().Count();
             for (int i = 0; i < count; i++)
             {
                 PlayOneTestManyTimes(i, 20);
             }
+
+            var totalScore = CalculateScore();
+            Console.WriteLine($"Total score is {totalScore}");
+            Assert.That(totalScore, Is.GreaterThan(MinScoreToPassTest));
         }
     }
 }
