@@ -115,7 +115,7 @@ namespace AiAlgorithms.racing
                 Car.ParseCar("-5,0 0,0 8"), Car.ParseCar("5,0 0,0 8"));
             yield return new RaceState(
                 new RaceTrack(Vectors("10,0 14,0"),
-                    Disks("0,0,4 0,8,4 0,-8,4"), 200, 10),
+                    Disks("0,0,4 0,8,4 0,-10,4"), 200, 10),
                 Car.ParseCar("-10,0 0,0 2"), Car.ParseCar("-10,4 0,0 2"));
         }
     }
