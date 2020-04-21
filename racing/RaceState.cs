@@ -56,7 +56,8 @@ namespace AiAlgorithms.racing
                     if (CrashToObstacle(initialPos, finalPos, car.Radius))
                         car.IsAlive = false;
                     else
-                        while (SegmentCrossPoint(initialPos, finalPos, GetNextFlag(), car.Radius))
+                        while (SegmentCrossPoint(initialPos, finalPos, GetNextFlag(), car.Radius)
+                            && FlagsTaken<Track.FlagsToTake)
                         {
                             FlagsTaken++;
                             car.FlagsTaken++;
