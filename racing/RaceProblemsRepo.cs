@@ -84,9 +84,39 @@ namespace AiAlgorithms.racing
                 new RaceTrack(Vectors("100,0 0,0"), Disks("50,0,10 50,10,10 50,-10,10 50,-20,10 50,20,10 50,30,10"),
                     200, 10),
                 Car.ParseCar("-5,0 0,0 5"), Car.ParseCar("5,0 0,0 5"));
+
+
+
+
+        }
+
+        public static IEnumerable<RaceState> GetResearchTests()
+        {
             yield return new RaceState(
                 new RaceTrack(Vectors("-140,7 -10,17 140,3 -140,-7 -10,-17 140,-3"), Disks(""), 300, 10),
                 Car.ParseCar("-145,0 0,0 2"), Car.ParseCar("-147,0 0,0 2"));
+            //yield return new RaceState(
+            //    new RaceTrack(Vectors("0,0"), Disks(""), 300, 10),
+            //    Car.ParseCar("-5,0 0,0 3"), Car.ParseCar("5,0 0,0 3"));
+            yield return new RaceState(
+                new RaceTrack(Vectors("-100,0 100,0"), Disks(""), 300, 10),
+                Car.ParseCar("-5,0 0,0 3"), Car.ParseCar("5,0 0,0 3"));
+            yield return new RaceState(
+                new RaceTrack(Vectors("-10,0 10,0"), Disks(""), 300, 15),
+                Car.ParseCar("-10,0 0,0 3"), Car.ParseCar("10,0 0,0 3"));
+            yield return new RaceState(
+                new RaceTrack(Vectors("-10,-10 10,-10 -10,-5 10,-5 -10,0 10,0 -10,10 10,10 -10,5 10,5"), Disks(""), 300, 25),
+                Car.ParseCar("-5,0 0,0 3"), Car.ParseCar("5,0 0,0 3"));
+            yield return new RaceState(
+                new RaceTrack(Vectors("-100,0 100,0"), Disks(""), 300, 10),
+                Car.ParseCar("-10,0 25,-45 3"), Car.ParseCar("10,0 -25,45 3"));
+            yield return new RaceState(
+                new RaceTrack(Vectors("100,50 -35,-40 30,50"), Disks(""), 300, 10),
+                Car.ParseCar("-5,0 0,0 8"), Car.ParseCar("5,0 0,0 8"));
+            yield return new RaceState(
+                new RaceTrack(Vectors("10,0 14,0"),
+                    Disks("0,0,4 0,8,4 0,-8,4"), 200, 10),
+                Car.ParseCar("-10,0 0,0 2"), Car.ParseCar("-10,4 0,0 2"));
         }
     }
 }
