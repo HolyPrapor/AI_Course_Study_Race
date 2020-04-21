@@ -33,6 +33,7 @@
         <e p="AbstractRacer.cs" t="Include" />
         <e p="Car.cs" t="Include" />
         <e p="Disk.cs" t="Include" />
+        <e p="DoubleRandomRacer.cs" t="Include" />
         <e p="EvaluationFunctions.cs" t="Include" />
         <e p="ExchangeCommand.cs" t="Include" />
         <e p="firebase.json" t="Include" />
@@ -80,7 +81,7 @@
     <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
     <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
     <e p="C:\Users\Zeliboba\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="C:\Users\Zeliboba\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Zeliboba\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_aicourse.1185453680.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Zeliboba\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Zeliboba\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_aicourse.1185453680.00" t="ExcludeRecursive" />
   </component>
 </project>

@@ -37,12 +37,12 @@ namespace AiAlgorithms.racing
 
         [Test]
         [Explicit("Тест для отладки и анализа")]
-        public void VisualizeRace([Values(1)] int testIndex)
+        public void VisualizeRace([Values(10)] int testIndex)
         {
             // Открой файл bin/Debug/*/racing/visualizer/index.html чтобы посмотреть реплей на тесте testIndex
-            var greedyRacer = new RandomRacer();
+            var doubleRandomRacer = new DoubleRandomRacer();
             var test = RaceProblemsRepo.GetTests().ElementAt(testIndex);
-            RaceController.Play(test, greedyRacer, true);
+            RaceController.Play(test, doubleRandomRacer, true);
         }
     }
 }

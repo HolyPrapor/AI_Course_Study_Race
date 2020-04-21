@@ -5,7 +5,7 @@ namespace AiAlgorithms.racing
         public GreedyRacer(int depth = 20,
             double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1d / 4)
         {
-            FlagChooser = new MaxDistFlagChooser();
+            FlagChooser = new SimpleConsistentFlagChooser();
             MoveChooser = new GreedyMoveChooser(new SumWeighter(), depth, flagsTakenC, distC, nextFlagC);
         }
     }
