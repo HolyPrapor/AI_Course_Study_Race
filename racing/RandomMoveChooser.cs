@@ -7,28 +7,39 @@ namespace AiAlgorithms.racing
 {
     public class RandomMoveChooser : IMoveChooser
     {
-        private static readonly ICarCommand[] Commands;
+        private readonly ICarCommand[] Commands;
         private readonly int depth;
         private readonly EvaluationFunctions evaluationFunctions;
         private readonly IPairWeighter PairWeighter;
         private List<ICarCommand> firstPreviousBest;
         private List<ICarCommand> secondPreviousBest;
+        private int maxCommandIndex;
 
-        static RandomMoveChooser()
-        {
-            var list = new[] {0, 1, -1};
-            Commands = list
-                .SelectMany(t => list, (t1, t2) => (ICarCommand) new MoveCommand(new V(t1, t2)))
-                .Prepend(new ExchangeCommand())
-                .ToArray();
+        public RandomMoveChooser()
+        { 
         }
 
-        public RandomMoveChooser(IPairWeighter pairWeight, int depth = 20,
+        public RandomMoveChooser(IPairWeighter pairWeight, bool withExchange, int depth = 20,
             double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1d / 4)
         {
             this.depth = depth;
             evaluationFunctions = new EvaluationFunctions(flagsTakenC, distC, nextFlagC);
             PairWeighter = pairWeight;
+            var list = new[] { 0, 1, -1 };
+            var possibleCommands = list
+                .SelectMany(t => list, (t1, t2) => (ICarCommand)new MoveCommand(new V(t1, t2)));
+            if (withExchange)
+            {
+                Commands = possibleCommands
+                     .Prepend(new ExchangeCommand())
+                     .ToArray();
+                maxCommandIndex = 10;
+            }
+            else
+            {
+                Commands = possibleCommands.ToArray();
+                maxCommandIndex = 9;
+            }
         }
 
         public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand, double Score)[] GetCarCommands(
@@ -57,7 +68,7 @@ namespace AiAlgorithms.racing
                 var myCommands = new List<ICarCommand>();
                 while (allCount < depth)
                 {
-                    var pairInd = rnd.Next(10);
+                    var pairInd = rnd.Next(maxCommandIndex);
                     var count = rnd.Next(3, 10);
                     var command = Commands[pairInd];
                     myCommands.Add(command);

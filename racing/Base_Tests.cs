@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AiAlgorithms.Algorithms;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace AiAlgorithms.racing
         }
 
         public double MinScoreToPassTest => 8400;
+
+       
 
         public double CalculateScore()
         {

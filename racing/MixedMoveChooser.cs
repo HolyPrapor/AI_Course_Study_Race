@@ -12,7 +12,7 @@ namespace AiAlgorithms.racing
             double flagsTakenC = 10000, double distC = 1, double nextFlagC = 1 / 4)
         {
             Choosers.Add(new GreedyMoveChooser(new SumWeighter(), depth, flagsTakenC, distC, nextFlagC));
-            Choosers.Add(new RandomMoveChooser(new SumWeighter(), depth, flagsTakenC, distC, nextFlagC));
+            Choosers.Add(new RandomMoveChooser(new SumWeighter(),true, depth, flagsTakenC, distC, nextFlagC));
         }
 
         public (ICarCommand FirstCarCommand, ICarCommand SecondCarCommand,
