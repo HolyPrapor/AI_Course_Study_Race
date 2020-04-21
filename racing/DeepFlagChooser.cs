@@ -27,9 +27,9 @@ namespace AiAlgorithms.racing
             var res = predictSecondRange
                 .SelectMany(n => new[] { (1, n), (n, 1) })
                 .ToDictionary(p=>p, p=>double.NegativeInfinity);
-            var firstFlag = state.GetNextFlag(1);
+            var firstFlag = state.GetNextFlag(0);
             var leftFlagsSlice = predictSecondRange
-                .Select(n => state.GetNextFlag(n))
+                .Select(n => state.GetNextFlag(n-1))
                 .ToArray();
             foreach (var n in predictSecondRange)
             {
@@ -41,7 +41,7 @@ namespace AiAlgorithms.racing
                 res[(n, 1)] = secondRes;
             }
             var bestPair = res.MaxBy(p => p.Value);
-            return (state.GetNextFlag(bestPair.Key.Item1), state.GetNextFlag(bestPair.Key.Item2));
+            return (state.GetNextFlag(bestPair.Key.Item1-1), state.GetNextFlag(bestPair.Key.Item2-1));
         }
 
         public double EvaluateFlags(V firstV, V secondV,
@@ -62,9 +62,9 @@ namespace AiAlgorithms.racing
             scoreList.Add(score);
             for (int i = 0; i < Depth; i++)
             {
-                var firstFlag = copyState.GetNextFlag(1);
+                var firstFlag = copyState.GetNextFlag(0);
                 var leftFlagsSlice = predictSecondRange
-                    .Select(n => copyState.GetNextFlag(n))
+                    .Select(n => copyState.GetNextFlag(n-1))
                     .ToArray();
                 foreach (var n in predictSecondRange)
                 {

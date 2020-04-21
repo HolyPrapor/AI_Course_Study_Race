@@ -87,6 +87,9 @@ namespace AiAlgorithms.racing
             yield return new RaceState(
                 new RaceTrack(Vectors("-140,7 -10,17 140,3 -140,-7 -10,-17 140,-3"), Disks(""), 300, 10),
                 Car.ParseCar("-145,0 0,0 2"), Car.ParseCar("-147,0 0,0 2"));
+            /*yield return new RaceState(
+                new RaceTrack(Vectors("0,0"), Disks(""), 300, 10),
+                Car.ParseCar("-5,0 0,0 3"), Car.ParseCar("5,0 0,0 3"));*/
         }
     }
 }
