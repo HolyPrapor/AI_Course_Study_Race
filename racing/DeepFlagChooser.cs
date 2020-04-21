@@ -14,7 +14,7 @@ namespace AiAlgorithms.racing
         /*IEnumerable<int> predictSecondRange = Enumerable
                     .Range(2, 3);*/
         //it is better to make array bigger, but it becomes too slow
-        int[] predictSecondRange = new[] { 2, 3};
+        int[] predictSecondRange = new[] { 2 };
         IMoveChooser moveChooser;
 
         public DeepFlagChooser(IMoveChooser mch)
