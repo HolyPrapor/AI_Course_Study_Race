@@ -7,6 +7,7 @@
         {
             FlagChooser = new MaxDistFlagChooser();
             MoveChooser = new RandomMoveChooser(new SumWeighter(), depth, flagsTakenC, distC, nextFlagC);
+            //FlagChooser = new DeepFlagChooser(MoveChooser);
         }
     }
 }
