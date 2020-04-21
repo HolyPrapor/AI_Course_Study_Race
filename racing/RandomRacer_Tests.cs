@@ -11,23 +11,33 @@ namespace AiAlgorithms.racing
         public RandomRacer_Tests():base((AbstractRacer)new RandomRacer(true))
         {}
 
-        [Test]
-        public void PlayOneTestManyTimes()
+        //[Test]
+        public void PlayOneTestManyTimes(int testNumber, int repetitionCount)
         {
             var tests = RaceProblemsRepo.GetTests();
-            var test = tests.ElementAt(6);
-            int count = 40;
+            var test = tests.ElementAt(testNumber);
             var stat = new StatValue();
-            var racer = new GreedyRacer();
-            for (int i = 0; i < count; i++)
+            var racer = new RandomRacer(true);
+            for (int i = 0; i < repetitionCount; i++)
             {
                 var finalState = RaceController.Play(test, racer, false);
                 var testScore = finalState.FlagsTaken * 100 - finalState.Time;
                 stat.Add(testScore);
             }
             var resWith = stat.Mean;
-            Console.WriteLine("mean " + resWith.ToString() );
+            Console.WriteLine(testNumber.ToString());
+            Console.WriteLine("mean " + resWith.ToString());
             Console.WriteLine("conf " + stat.ConfIntervalSize.ToString());
+        }
+
+        [Test]
+        public void MeanAndConfForAll()
+        {
+            var count = RaceProblemsRepo.GetTests().Count();
+            for (int i = 0; i < count; i++)
+            {
+                PlayOneTestManyTimes(i, 20);
+            }
         }
     }
 }
