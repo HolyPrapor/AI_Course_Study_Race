@@ -84,10 +84,6 @@ namespace AiAlgorithms.racing
                 new RaceTrack(Vectors("100,0 0,0"), Disks("50,0,10 50,10,10 50,-10,10 50,-20,10 50,20,10 50,30,10"),
                     200, 10),
                 Car.ParseCar("-5,0 0,0 5"), Car.ParseCar("5,0 0,0 5"));
-
-
-
-
         }
 
         public static IEnumerable<RaceState> GetResearchTests()
@@ -95,6 +91,9 @@ namespace AiAlgorithms.racing
             yield return new RaceState(
                 new RaceTrack(Vectors("-140,7 -10,17 140,3 -140,-7 -10,-17 140,-3"), Disks(""), 300, 10),
                 Car.ParseCar("-145,0 0,0 2"), Car.ParseCar("-147,0 0,0 2"));
+            yield return new RaceState(
+                new RaceTrack(Vectors("0,0"), Disks(""), 300, 10),
+                Car.ParseCar("-5,0 0,0 3"), Car.ParseCar("5,0 0,0 3"));
             //yield return new RaceState(
             //    new RaceTrack(Vectors("0,0"), Disks(""), 300, 10),
             //    Car.ParseCar("-5,0 0,0 3"), Car.ParseCar("5,0 0,0 3"));

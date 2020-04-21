@@ -7,6 +7,7 @@ namespace AiAlgorithms.racing
         {
             FlagChooser = new SimpleConsistentFlagChooser();
             MoveChooser = new GreedyMoveChooser(new SumWeighter(), depth, flagsTakenC, distC, nextFlagC);
+            //FlagChooser = new DeepFlagChooser(MoveChooser);
         }
     }
 }

@@ -31,7 +31,10 @@
       <e p="racing" t="Include">
         <e p=".firebaserc" t="Include" />
         <e p="AbstractRacer.cs" t="Include" />
+        <e p="Base_Tests.cs" t="Include" />
+        <e p="BothCarMoveChooser.cs" t="Include" />
         <e p="Car.cs" t="Include" />
+        <e p="DeepFlagChooser.cs" t="Include" />
         <e p="Disk.cs" t="Include" />
         <e p="DoubleRandomRacer.cs" t="Include" />
         <e p="EvaluationFunctions.cs" t="Include" />
@@ -47,6 +50,8 @@
         <e p="IPairWeighter.cs" t="Include" />
         <e p="MaxDistFlagChooser.cs" t="Include" />
         <e p="MixedMoveChooser.cs" t="Include" />
+        <e p="MixedRacer.cs" t="Include" />
+        <e p="MixedRacer_Tests.cs" t="Include" />
         <e p="MoveCommand.cs" t="Include" />
         <e p="NaiveRacer.cs" t="Include" />
         <e p="NaiveRacer_Tests.cs" t="Include" />
@@ -65,7 +70,6 @@
         <e p="SumWeighter.cs" t="Include" />
         <e p="visualizer" t="Include">
           <e p="index.html" t="Include" />
-          <e p="last-log.js" t="Include" />
           <e p="scripts.js" t="Include" />
           <e p="styles.css" t="Include" />
         </e>

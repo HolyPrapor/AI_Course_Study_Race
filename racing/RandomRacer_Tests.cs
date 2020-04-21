@@ -1,48 +1,48 @@
 ﻿using System;
 using System.Linq;
+using AiAlgorithms.Algorithms;
 using NUnit.Framework;
 
 namespace AiAlgorithms.racing
 {
     [TestFixture]
-    public class RandomRacer_Tests : IScoredTest
+    public class RandomRacer_Tests : Base_Tests, IScoredTest
     {
-        public double MinScoreToPassTest => 8400;
+        public RandomRacer_Tests():base((AbstractRacer)new RandomRacer(true))
+        {}
 
-        public double CalculateScore()
+        //[Test]
+        public void PlayOneTestManyTimes(int testNumber, int repetitionCount)
         {
-            var score = 0.0;
-            var iTest = 0;
-            foreach (var test in RaceProblemsRepo.GetTests())
+            var tests = RaceProblemsRepo.GetTests();
+            var test = tests.ElementAt(testNumber);
+            var stat = new StatValue();
+            var racer = new RandomRacer(true);
+            for (int i = 0; i < repetitionCount; i++)
             {
-                var racer = new RandomRacer();
                 var finalState = RaceController.Play(test, racer, false);
                 var testScore = finalState.FlagsTaken * 100 - finalState.Time;
-                Console.WriteLine(
-                    $"Test #{iTest} score: {testScore} (flags: {finalState.FlagsTaken} of {test.Track.FlagsToTake}, time: {finalState.Time} of {test.Track.RaceDuration})");
-                score += testScore;
-                iTest++;
+                stat.Add(testScore);
             }
-
-            return score;
+            var resWith = stat.Mean;
+            Console.WriteLine(testNumber.ToString());
+            Console.WriteLine("mean " + resWith.ToString());
+            Console.WriteLine("conf " + stat.ConfIntervalSize.ToString());
         }
 
         [Test]
-        public void QualityIsOK()
+        public void MeanAndConfForAll()
         {
+
+            var count = RaceProblemsRepo.GetTests().Count();
+            for (int i = 0; i < count; i++)
+            {
+                PlayOneTestManyTimes(i, 20);
+            }
+
             var totalScore = CalculateScore();
             Console.WriteLine($"Total score is {totalScore}");
             Assert.That(totalScore, Is.GreaterThan(MinScoreToPassTest));
-        }
-
-        [Test]
-        [Explicit("Тест для отладки и анализа")]
-        public void VisualizeRace([Values(10)] int testIndex)
-        {
-            // Открой файл bin/Debug/*/racing/visualizer/index.html чтобы посмотреть реплей на тесте testIndex
-            var doubleRandomRacer = new DoubleRandomRacer();
-            var test = RaceProblemsRepo.GetTests().ElementAt(testIndex);
-            RaceController.Play(test, doubleRandomRacer, true);
         }
     }
 }
