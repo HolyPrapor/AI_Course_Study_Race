@@ -56,6 +56,9 @@ namespace AiAlgorithms.racing
                     bestScore = PreviousBest[0].score;
                     bestMoves = PreviousBest;
                 }
+            if(bestMoves == null)
+                bestMoves = new List<(double score, ICarCommand firstCarCommand, ICarCommand secondCarCommand)>
+                    {(double.MinValue, new MoveCommand(V.Zero), new MoveCommand(V.Zero))};
             PreviousBest = bestMoves.Skip(1).ToList();
             yield return new RaceSolution(new []{(bestMoves[0].firstCarCommand, bestMoves[0].secondCarCommand)}) { Score = bestScore};
         }

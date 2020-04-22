@@ -17,7 +17,7 @@ namespace AiAlgorithms.racing
             var tests = RaceProblemsRepo.GetTests();
             var test = tests.ElementAt(testNumber);
             var stat = new StatValue();
-            var racer = new RandomRacer(true);
+            var racer = new DoubleRandomRacer();
             for (int i = 0; i < repetitionCount; i++)
             {
                 var finalState = RaceController.Play(test, racer, false);
